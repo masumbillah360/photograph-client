@@ -1,6 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import logo from "../../../assets/banner-img.jpg";
+import logo from "../../../assets/logo.jpg";
 import Slider from "./Slider";
 
 const Banner = () => {

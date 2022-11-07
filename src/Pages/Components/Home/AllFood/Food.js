@@ -8,7 +8,7 @@ const Food = () => {
     <Card>
       <Card.Img variant="top" src={cardImg} />
       <Card.Body>
-        <Card.Title className="bg-dark text-center rounded-2">
+        <Card.Title className="bg-dark py-2 text-center rounded-2">
           <span className="text-white">Name : Delecius Berger</span>
         </Card.Title>
         <Card.Text>

@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "../../Shared/Banner/Banner";
 import NavBar from "../../Shared/NavBar/NavBar";
+import Footer from "../Footer/Footer";
 import AllFood from "./AllFood/AllFood";
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
       <div className="mt-4">
         <AllFood />
       </div>
+      <Footer />
     </div>
   );
 };
