@@ -1,5 +1,6 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
+import logo from "../../../assets/banner-img.jpg";
 import Slider from "./Slider";
 
 const Banner = () => {
@@ -7,9 +8,12 @@ const Banner = () => {
     <div className="mt-3">
       <Row className="justify-content-center align-items-center">
         <Col className="text-center">
+          <img className="img-fluid w-25 rounded-circle" src={logo} alt="" />
           <h1 className="text-warning">
-            <span className="fw-bold text-danger">Your Test</span> <br /> Our
-            Commitment
+            <span className="fw-bold text-danger text-decoration-underline">
+              Your Test
+            </span>{" "}
+            <br /> Our Commitment
           </h1>
           <p>
             Be more of lie the unhappy sainted nevermore evilprophet visiter.
