@@ -12,7 +12,7 @@ const Banner = () => {
           <h1 className="text-warning">
             <span className="fw-bold text-danger text-decoration-underline">
               Your Test
-            </span>{" "}
+            </span>
             <br /> Our Commitment
           </h1>
           <p>
