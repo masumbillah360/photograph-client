@@ -7,7 +7,7 @@ const Banner = () => {
   return (
     <div className="mt-3">
       <Row className="justify-content-center align-items-center">
-        <Col className="text-center">
+        <Col sm={12} md={6} className="text-center">
           <img className="img-fluid w-25 rounded-circle" src={logo} alt="" />
           <h1 className="text-warning">
             <span className="fw-bold text-danger text-decoration-underline">
@@ -24,7 +24,7 @@ const Banner = () => {
             silken then denser be, december.
           </p>
         </Col>
-        <Col>
+        <Col sm={12} md={6}>
           <Slider />
         </Col>
       </Row>

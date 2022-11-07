@@ -21,8 +21,8 @@ const Footer = () => {
           </Nav>
         </div>
         <div>
-          <h4 className="text-warning text-center">Follow Us</h4>
-          <ul className="list-unstyled d-flex">
+          <h4 className="text-warning text-center">Follow On Us</h4>
+          <ul className="list-unstyled d-flex justify-content-center">
             <li className="ms-3">
               <button className="btn btn-primary">
                 <FaFacebook />
