@@ -15,7 +15,7 @@ const Food = () => {
     <div className="">
       <Row className="gy-4">
         {foods.map((food, idx) => (
-          <Col sm={12} md={6}>
+          <Col sm={12} md={6} key={idx}>
             <SingleFood key={idx} food={food} />
           </Col>
         ))}
