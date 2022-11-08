@@ -1,13 +1,19 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { FaArrowRight, FaStar, FaStarHalf } from "react-icons/fa";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 import { Link } from "react-router-dom";
 
 const SingleFood = ({ food }) => {
   const { _id, name, description, picture, price } = food;
   return (
     <Card>
-      <Card.Img variant="top" src={picture} />
+      <PhotoProvider>
+        <PhotoView src={picture}>
+          <Card.Img variant="top" src={picture} />
+        </PhotoView>
+      </PhotoProvider>
       <Card.Body>
         <Card.Title className="bg-success py-2 text-center rounded-2">
           <span className="text-white fw-bold">Name : {name}</span>

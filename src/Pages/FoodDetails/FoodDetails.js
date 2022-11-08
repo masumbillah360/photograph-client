@@ -1,8 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
-import { FaStar, FaStarHalf, FaTrash } from "react-icons/fa";
+import { FaStar, FaStarHalf } from "react-icons/fa";
+import { PhotoProvider, PhotoView } from "react-photo-view";
+import "react-photo-view/dist/react-photo-view.css";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import Revew from "./Revew";
 
 const FoodDetails = () => {
   const [reviews, setReviews] = useState([]);
@@ -10,7 +13,7 @@ const FoodDetails = () => {
   const { user } = useContext(AuthContext);
   const foodInfo = useLoaderData();
 
-  const { _id, name, description, price, picture } = foodInfo;
+  const { name, description, price, picture } = foodInfo;
 
   useEffect(() => {
     fetch("http://localhost:8000/review")
@@ -42,22 +45,15 @@ const FoodDetails = () => {
       .catch((err) => console.log(err));
   };
 
-  const handleUpdate = (e) => {};
-  const handleDelete = (id) => {
-    fetch(`http://localhost:8000/review/${id}`, {
-      method: "DELETE",
-    })
-      .then(() => {
-        console.log("deleted");
-        setRefresh(!refresh);
-      })
-      .catch((err) => console.log(err));
-  };
   return (
     <Row>
       <Col sm={12} md={8}>
         <Card>
-          <Card.Img variant="top" src={picture} />
+          <PhotoProvider>
+            <PhotoView src={picture}>
+              <Card.Img variant="top" src={picture} />
+            </PhotoView>
+          </PhotoProvider>
           <Card.Body>
             <Card.Title className="bg-success py-2 text-center rounded-2">
               <span className="text-white fw-bold">Name : {name}</span>
@@ -107,33 +103,12 @@ const FoodDetails = () => {
             </form>
             <div className="overflow-auto vh-100">
               {reviews.map((review, idx) => (
-                <div key={idx} className="border rounded-2 my-3">
-                  <div className="d-flex justify-content-start align-items-center">
-                    <img
-                      className="rounded-circle p-2 user-thumb "
-                      src={review?.userThumb}
-                      alt="userProfile"
-                    />
-                    <div className="ms-1">
-                      <h6>{review?.name}</h6>
-                      <p>{review.comments}</p>
-                    </div>
-                  </div>
-                  <div className="d-flex justify-content-end">
-                    <button
-                      onClick={handleUpdate}
-                      className="btn btn-outline-info me-2"
-                    >
-                      Edit
-                    </button>
-                    <button
-                      onClick={() => handleDelete(review._id)}
-                      className="btn btn-outline-danger"
-                    >
-                      <FaTrash />
-                    </button>
-                  </div>
-                </div>
+                <Revew
+                  key={idx}
+                  review={review}
+                  setRefresh={setRefresh}
+                  refresh={refresh}
+                />
               ))}
             </div>
           </div>
