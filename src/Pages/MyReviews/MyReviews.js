@@ -16,27 +16,33 @@ const MyReviews = () => {
   }, [email, reload]);
   return (
     <div>
-      <Table striped bordered hover>
-        <thead>
-          <tr>
-            <th>Serial</th>
-            <th>Review</th>
-            <th>Post Name</th>
-            <th className="text-end">Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {reviews.map((review, idx) => (
-            <SingleReview
-              key={review._id}
-              review={review}
-              idx={idx}
-              setReload={setReload}
-              reload={reload}
-            />
-          ))}
-        </tbody>
-      </Table>
+      {reviews.length > 0 ? (
+        <Table striped bordered hover>
+          <thead>
+            <tr>
+              <th>Serial</th>
+              <th>Review</th>
+              <th>Post Name</th>
+              <th className="text-end">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {reviews.map((review, idx) => (
+              <SingleReview
+                key={review._id}
+                review={review}
+                idx={idx}
+                setReload={setReload}
+                reload={reload}
+              />
+            ))}
+          </tbody>
+        </Table>
+      ) : (
+        <div className="text-center">
+          <h1 className="fw-bold text-muted">No Reviews Found</h1>
+        </div>
+      )}
     </div>
   );
 };
