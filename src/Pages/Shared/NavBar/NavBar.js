@@ -32,7 +32,9 @@ const NavBar = () => {
             {user?.email ? (
               <>
                 <Nav.Link href="#features">Blog</Nav.Link>
-                <Nav.Link href="#features">My Reviews</Nav.Link>
+                <Link className="nav-link" to="/myreviews">
+                  My Reviews
+                </Link>
                 <Nav.Link href="#features">Add Service</Nav.Link>
               </>
             ) : (

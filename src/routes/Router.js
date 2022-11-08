@@ -4,6 +4,7 @@ import Home from "../Pages//Home/Home";
 import AllFood from "../Pages/AllFood/AllFood";
 import FoodDetails from "../Pages/FoodDetails/FoodDetails";
 import Login from "../Pages/Login/Login";
+import MyReviews from "../Pages/MyReviews/MyReviews";
 import Signup from "../Pages/Signup/Signup";
 
 export const router = createBrowserRouter([
@@ -23,6 +24,7 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`https://tasty-bite-server.vercel.app/allfood/${params.id}`),
       },
+      { path: "/myreviews", element: <MyReviews /> },
       {
         path: "/login",
         element: <Login />,
