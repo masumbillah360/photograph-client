@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import SingleFood from "./SingleFood";
+import SingleFood from "../../Shared/SingleFood/SingleFood";
 
 const Food = () => {
   const [foods, setFoods] = useState([]);
