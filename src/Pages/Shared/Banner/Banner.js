@@ -15,7 +15,7 @@ const Banner = () => {
             </span>
             <br /> Our Commitment
           </h1>
-          <p>
+          <p className="text-justify">
             Be more of lie the unhappy sainted nevermore evilprophet visiter.
             Beguiling wretch decorum the eyes balm. Lenore spoken plainly myself
             ghastly the flirt nevermore. I bleak suddenly quoth silence no or
