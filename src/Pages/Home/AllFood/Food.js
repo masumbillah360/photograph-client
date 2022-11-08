@@ -16,7 +16,7 @@ const Food = () => {
             Price : $15
           </span>
 
-          <span className="d-block text-justify">
+          <span className="d-block text-justify mt-2">
             A is but hear or scarce wished or startled sorrow the. I
             meaninglittle my and followed token visiter. This then wandering
             then that the the, darkness doubting of sitting thy this, a door the

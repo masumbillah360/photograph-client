@@ -6,14 +6,14 @@ import Food from "./Food";
 const AllFood = () => {
   return (
     <div className="">
-      <Row>
-        <Col sm={12} md={6} lg={4}>
+      <Row className="gy-4">
+        <Col sm={12} md={6}>
           <Food />
         </Col>
-        <Col sm={12} md={6} lg={4}>
+        <Col sm={12} md={6}>
           <Food />
         </Col>
-        <Col sm={12} md={6} lg={4}>
+        <Col sm={12} md={6}>
           <Food />
         </Col>
       </Row>

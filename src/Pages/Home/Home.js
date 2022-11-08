@@ -1,6 +1,7 @@
 import React from "react";
 import Banner from "../Shared/Banner/Banner";
 import AllFood from "./AllFood/AllFood";
+import Clients from "./Clients/Clients";
 import Owner from "./Owner/Owner";
 
 const Home = () => {
@@ -12,6 +13,9 @@ const Home = () => {
       </div>
       <div>
         <Owner />
+      </div>
+      <div>
+        <Clients />
       </div>
     </div>
   );
