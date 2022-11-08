@@ -1,11 +1,12 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import { RouterProvider } from "react-router-dom";
 import "./App.css";
-import Home from "./Pages/Components/Home/Home";
+import { router } from "./routes/Router";
 
 function App() {
   return (
     <div className="container">
-      <Home />
+      <RouterProvider router={router} />
     </div>
   );
 }

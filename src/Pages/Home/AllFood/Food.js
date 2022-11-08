@@ -1,14 +1,14 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
-import { FaStar, FaStarHalf } from "react-icons/fa";
-import cardImg from "../../../../assets/banner-img.jpg";
+import { FaArrowRight, FaStar, FaStarHalf } from "react-icons/fa";
+import cardImg from "../../../assets/banner-img.jpg";
 
 const Food = () => {
   return (
     <Card>
       <Card.Img variant="top" src={cardImg} />
       <Card.Body>
-        <Card.Title className="bg-secondary py-2 text-center rounded-2">
+        <Card.Title className="bg-success py-2 text-center rounded-2">
           <span className="text-white fw-bold">Name : Delecius Berger</span>
         </Card.Title>
         <Card.Text>
@@ -36,7 +36,9 @@ const Food = () => {
             <FaStar />
             <FaStarHalf />
           </div>
-          <button className="btn btn-outline-danger btn-sm">Details</button>
+          <button className="btn btn-outline-danger btn-sm fs-6">
+            <FaArrowRight />
+          </button>
         </div>
       </Card.Body>
     </Card>

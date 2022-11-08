@@ -1,15 +1,15 @@
 import React from "react";
-import logo from "../../../../assets/logo.jpg";
+import logo from "../../../assets/logo.jpg";
 
 const Owner = () => {
   return (
     <div className="px-4 py-5 my-5 text-center">
       <img
-        className="d-block mx-auto mb-4 rounded-circle"
+        className="d-block mx-auto mb-1 rounded-circle"
         src={logo}
         alt="logo Not Found"
-        width="72"
-        height="57"
+        width="100"
+        height="100"
       />
       <h1 className="display-5 fw-bold">Masum Billah</h1>
       <h5 className="fw-bold">

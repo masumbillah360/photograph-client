@@ -1,5 +1,6 @@
 import React from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
+import { FaArrowRight } from "react-icons/fa";
 import Food from "./Food";
 
 const AllFood = () => {
@@ -17,7 +18,9 @@ const AllFood = () => {
         </Col>
       </Row>
       <div className="text-center mt-4">
-        <Button varient="primary">See All</Button>
+        <button className="btn btn-outline-primary fw-bold">
+          See All <FaArrowRight />
+        </button>
       </div>
     </div>
   );
