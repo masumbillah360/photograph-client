@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const SingleReview = ({ review, idx, setReload, reload }) => {
   const { _id } = review;
@@ -16,7 +17,9 @@ const SingleReview = ({ review, idx, setReload, reload }) => {
       <td>{review.comments}</td>
       <td>{review.postName}</td>
       <td className="d-flex justify-content-end">
-        <button className="btn btn-sm btn-info me-2">Update</button>
+        <Link to={`/updatereviews/${_id}`} className="btn btn-sm btn-info me-2">
+          Update
+        </Link>
         <button
           onClick={() => handleDelete(_id)}
           className="btn btn-sm btn-danger"
