@@ -6,13 +6,14 @@ import SingleReview from "./SingleReview";
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+  const [reload, setReload] = useState(false);
   const email = user?.email;
   useEffect(() => {
     fetch(`http://localhost:8000/myreviews?email=${email}`)
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.log(err));
-  }, [email]);
+  }, [email, reload]);
   return (
     <div>
       <Table striped bordered hover>
@@ -26,7 +27,13 @@ const MyReviews = () => {
         </thead>
         <tbody>
           {reviews.map((review, idx) => (
-            <SingleReview key={review._id} review={review} idx={idx} />
+            <SingleReview
+              key={review._id}
+              review={review}
+              idx={idx}
+              setReload={setReload}
+              reload={reload}
+            />
           ))}
         </tbody>
       </Table>
