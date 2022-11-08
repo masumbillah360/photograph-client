@@ -1,10 +1,11 @@
 import React from "react";
-import Card from "react-bootstrap/Card";
-import { FaArrowRight, FaStar, FaStarHalf } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Card } from "react-bootstrap";
+import { FaStar, FaStarHalf } from "react-icons/fa";
+import { useLoaderData } from "react-router-dom";
 
-const SingleFood = ({ food }) => {
-  const { _id, name, description, picture, price } = food;
+const FoodDetails = () => {
+  const foodInfo = useLoaderData();
+  const { name, description, price, picture } = foodInfo;
   return (
     <Card>
       <Card.Img variant="top" src={picture} />
@@ -17,11 +18,7 @@ const SingleFood = ({ food }) => {
             Price : {price}
           </span>
 
-          <span className="d-block text-justify mt-2">
-            {description.length > 100
-              ? description.slice(0, 100) + "..."
-              : description}
-          </span>
+          <span className="d-block text-justify mt-2">{description}</span>
         </Card.Text>
         <div className="d-flex justify-content-between align-items-center">
           <div className="text-warning bg-secondary px-2 py-2 rounded-2 d-flex justify-content-center align-items-center">
@@ -31,16 +28,10 @@ const SingleFood = ({ food }) => {
             <FaStar />
             <FaStarHalf />
           </div>
-          <Link
-            to={`/allfood/${_id}`}
-            className="btn btn-outline-danger btn-sm fs-6"
-          >
-            <FaArrowRight />
-          </Link>
         </div>
       </Card.Body>
     </Card>
   );
 };
 
-export default SingleFood;
+export default FoodDetails;
