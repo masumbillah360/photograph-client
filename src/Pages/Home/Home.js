@@ -1,7 +1,7 @@
 import React from "react";
 import Banner from "../Shared/Banner/Banner";
-import AllFood from "./AllFood/AllFood";
 import Clients from "./Clients/Clients";
+import Food from "./Food/Food";
 import Owner from "./Owner/Owner";
 
 const Home = () => {
@@ -9,7 +9,7 @@ const Home = () => {
     <div>
       <Banner />
       <div className="mt-4">
-        <AllFood />
+        <Food />
       </div>
       <div>
         <Owner />

@@ -2,7 +2,7 @@ import React from "react";
 import Card from "react-bootstrap/Card";
 import { FaArrowRight, FaStar, FaStarHalf } from "react-icons/fa";
 
-const Food = ({ food }) => {
+const SingleFood = ({ food }) => {
   const { name, description, picture, price } = food;
   return (
     <Card>
@@ -39,4 +39,4 @@ const Food = ({ food }) => {
   );
 };
 
-export default Food;
+export default SingleFood;

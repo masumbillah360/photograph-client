@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa";
-import Food from "./Food";
+import { Link } from "react-router-dom";
+import SingleFood from "./SingleFood";
 
-const AllFood = () => {
+const Food = () => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
     fetch("http://localhost:8000/homefood")
@@ -15,17 +16,17 @@ const AllFood = () => {
       <Row className="gy-4">
         {foods.map((food, idx) => (
           <Col sm={12} md={6}>
-            <Food key={idx} food={food} />
+            <SingleFood key={idx} food={food} />
           </Col>
         ))}
       </Row>
       <div className="text-center mt-4">
-        <button className="btn btn-outline-primary fw-bold">
+        <Link to="/allfood" className="btn btn-outline-primary fw-bold">
           See All <FaArrowRight />
-        </button>
+        </Link>
       </div>
     </div>
   );
 };
 
-export default AllFood;
+export default Food;
