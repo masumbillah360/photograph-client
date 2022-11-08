@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Login = () => {
+  const { googleSignIn } = useContext(AuthContext);
+  const handleGoogleLogin = () => {
+    googleSignIn()
+      .then((result) => console.log(result.user))
+      .catch((err) => console.log(err));
+  };
   return (
     <div class="container col-xl-10 col-xxl-8 py-3">
       <div class="row align-items-center g-lg-5 py-5">
@@ -14,7 +21,10 @@ const Login = () => {
             be triggered by attempting to submit the form without completing it.
           </p>
           <div className="d-flex justify-content-evenly mb-4">
-            <button className="btn btn-outline-danger">
+            <button
+              onClick={handleGoogleLogin}
+              className="btn btn-outline-danger"
+            >
               Google <FaGoogle />
             </button>
             <button className="btn btn-outline-secondary">

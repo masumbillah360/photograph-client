@@ -3,7 +3,7 @@ import logo from "../../../assets/logo.jpg";
 
 const Owner = () => {
   return (
-    <div className="px-4 py-5 my-5 text-center">
+    <div className="px-4 py-5 my-5 text-center bg-light rounded-2">
       <img
         className="d-block mx-auto mb-1 rounded-circle"
         src={logo}
