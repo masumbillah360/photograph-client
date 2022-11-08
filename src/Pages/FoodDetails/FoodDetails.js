@@ -13,18 +13,21 @@ const FoodDetails = () => {
   const { user } = useContext(AuthContext);
   const foodInfo = useLoaderData();
 
-  const { name, description, price, picture } = foodInfo;
-
+  const { _id, name, description, price, picture } = foodInfo;
+  const postId = _id;
+  const userEamil = user.email;
   useEffect(() => {
-    fetch("http://localhost:8000/review")
+    fetch(`http://localhost:8000/review?postId=${postId}&email=${userEamil}`)
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.log(err));
-  }, [refresh]);
+  }, [refresh, postId, userEamil]);
   const handleReview = (e) => {
     e.preventDefault();
     const comments = e.target.review.value;
     const review = {
+      postName: name,
+      postId: _id,
       email: user?.email,
       userThumb: user?.photoURL,
       name: user?.name,
