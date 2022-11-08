@@ -1,8 +1,33 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Signup = () => {
+  const { userSignIn, updateUserInfo } = useContext(AuthContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photoURL = form.photoURL.value;
+    const password = form.password.value;
+    userSignIn(email, password).then((result) => {
+      console.log(result.user);
+      handleUpdateInfo(name, photoURL);
+    });
+  };
+  const handleUpdateInfo = (name, photoURL) => {
+    const profile = {
+      displayName: name,
+      photoURL: photoURL,
+    };
+    updateUserInfo(profile)
+      .then(() => {
+        console.log("updated");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <div className="container col-xl-10 col-xxl-8 py-3">
       <div className="row align-items-center g-lg-5 py-5">
@@ -23,7 +48,10 @@ const Signup = () => {
           </div>
         </div>
         <div className="col-md-10 mx-auto col-lg-6">
-          <form className="p-2 p-md-4 border rounded-3 bg-light">
+          <form
+            onSubmit={handleSubmit}
+            className="p-2 p-md-4 border rounded-3 bg-light"
+          >
             <div className="form-floating mb-3">
               <input
                 type="text"

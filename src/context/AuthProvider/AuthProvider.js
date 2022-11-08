@@ -24,11 +24,17 @@ const AuthProvider = ({ children }) => {
   const loginUser = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password);
   };
-  const updatUserInfo = (profile) => {
-    updateProfile(auth.currentUser, profile);
+  const updateUserInfo = (profile) => {
+    return updateProfile(auth.currentUser, profile);
   };
   const user = { name: "Masum", email: "masum@gm.com" };
-  const authInfo = { user, googleSignIn, userSignIn, updatUserInfo, loginUser };
+  const authInfo = {
+    user,
+    googleSignIn,
+    userSignIn,
+    updateUserInfo,
+    loginUser,
+  };
   return (
     <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
   );

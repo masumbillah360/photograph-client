@@ -4,11 +4,18 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Login = () => {
-  const { googleSignIn } = useContext(AuthContext);
+  const { googleSignIn, loginUser } = useContext(AuthContext);
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => console.log(result.user))
       .catch((err) => console.log(err));
+  };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log({ email, password });
   };
   return (
     <div className="container col-xl-10 col-xxl-8 py-3">
@@ -33,10 +40,14 @@ const Login = () => {
           </div>
         </div>
         <div className="col-md-10 mx-auto col-lg-6">
-          <form className="p-2 p-md-4 border rounded-3 bg-light">
+          <form
+            onSubmit={handleSubmit}
+            className="p-2 p-md-4 border rounded-3 bg-light"
+          >
             <div className="form-floating mb-3">
               <input
                 type="email"
+                name="email"
                 className="form-control"
                 id="floatingInput"
                 placeholder="name@example.com"
@@ -46,6 +57,7 @@ const Login = () => {
             <div className="form-floating mb-3">
               <input
                 type="password"
+                name="password"
                 className="form-control"
                 id="floatingPassword"
                 placeholder="Password"
@@ -57,9 +69,11 @@ const Login = () => {
                 Do not have an account? <Link to="/signup">SignUP</Link>
               </h6>
             </div>
-            <button className="w-100 btn btn-lg btn-primary" type="submit">
-              Sign up
-            </button>
+            <input
+              className="w-100 btn btn-lg btn-primary"
+              type="submit"
+              value="Log In"
+            />
           </form>
         </div>
       </div>
