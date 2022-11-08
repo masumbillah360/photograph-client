@@ -1,31 +1,25 @@
 import React from "react";
 import Card from "react-bootstrap/Card";
 import { FaArrowRight, FaStar, FaStarHalf } from "react-icons/fa";
-import cardImg from "../../../assets/banner-img.jpg";
 
-const Food = () => {
+const Food = ({ food }) => {
+  const { name, description, picture, price } = food;
   return (
     <Card>
-      <Card.Img variant="top" src={cardImg} />
+      <Card.Img variant="top" src={picture} />
       <Card.Body>
         <Card.Title className="bg-success py-2 text-center rounded-2">
-          <span className="text-white fw-bold">Name : Delecius Berger</span>
+          <span className="text-white fw-bold">Name : {name}</span>
         </Card.Title>
         <Card.Text>
           <span className="d-block bg-danger text-white fw-bold py-2 text-center rounded-2">
-            Price : $15
+            Price : {price}
           </span>
 
           <span className="d-block text-justify mt-2">
-            A is but hear or scarce wished or startled sorrow the. I
-            meaninglittle my and followed token visiter. This then wandering
-            then that the the, darkness doubting of sitting thy this, a door the
-            of me the, utters of i nights with, late was i on door a more, of
-            when by and enchanted, nothing velvet tempest that uttered bust,
-            long nothing sorrow clasp more never above said the so, these gently
-            or lenore burning said heaven bird here, and nothing for still my
-            thee me, least for word darkness he myself sainted within whose
-            unbrokenquit. Clasp gently blessed the...
+            {description.length > 100
+              ? description.slice(0, 100) + "..."
+              : description}
           </span>
         </Card.Text>
         <div className="d-flex justify-content-between align-items-center">
