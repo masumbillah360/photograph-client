@@ -10,7 +10,7 @@ const FoodDetails = () => {
   const { user } = useContext(AuthContext);
   const foodInfo = useLoaderData();
 
-  const { name, description, price, picture } = foodInfo;
+  const { _id, name, description, price, picture } = foodInfo;
 
   useEffect(() => {
     fetch("http://localhost:8000/review")
@@ -37,6 +37,18 @@ const FoodDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        setRefresh(!refresh);
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const handleUpdate = (e) => {};
+  const handleDelete = (id) => {
+    fetch(`http://localhost:8000/review/${id}`, {
+      method: "DELETE",
+    })
+      .then(() => {
+        console.log("deleted");
         setRefresh(!refresh);
       })
       .catch((err) => console.log(err));
@@ -108,8 +120,16 @@ const FoodDetails = () => {
                     </div>
                   </div>
                   <div className="d-flex justify-content-end">
-                    <button className="btn btn-outline-info me-2">Edit</button>
-                    <button className="btn btn-outline-danger">
+                    <button
+                      onClick={handleUpdate}
+                      className="btn btn-outline-info me-2"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      onClick={() => handleDelete(review._id)}
+                      className="btn btn-outline-danger"
+                    >
                       <FaTrash />
                     </button>
                   </div>
