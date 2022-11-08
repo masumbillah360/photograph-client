@@ -1,5 +1,6 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const Revew = ({ review, setRefresh, refresh }) => {
   const { _id, userThumb, name, comments } = review;
@@ -13,9 +14,6 @@ const Revew = ({ review, setRefresh, refresh }) => {
       })
       .catch((err) => console.log(err));
   };
-  function handleUpdate(id) {
-    console.log(id);
-  }
   return (
     <div className="border rounded-2 my-3">
       <div className="d-flex justify-content-start align-items-center">
@@ -30,12 +28,12 @@ const Revew = ({ review, setRefresh, refresh }) => {
         </div>
       </div>
       <div className="d-flex justify-content-end">
-        <button
-          onClick={() => handleUpdate(_id)}
+        <Link
+          to={`/updatereviews/${_id}`}
           className="btn btn-outline-info me-2"
         >
           Edit
-        </button>
+        </Link>
         <button
           onClick={() => handleDelete(_id)}
           className="btn btn-outline-danger"
