@@ -20,8 +20,11 @@ const NavBar = () => {
   return (
     <Navbar sticky="top" collapseOnSelect expand="lg" bg="light">
       <Container>
-        <Navbar.Brand className="fw-bold text-warning">
-          <span className="text-danger">Tasty</span> Bite
+        <Navbar.Brand className="fw-bold text-white">
+          <Link to="/" className="nav-link">
+            <span className="bg-secondary ps-2 rounded-start">Tasty</span>
+            <span className="bg-danger pe-2 rounded-end">Bite</span>
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="ms-auto responsive-navbar-nav">
