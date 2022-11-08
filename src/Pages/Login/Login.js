@@ -10,12 +10,17 @@ const Login = () => {
       .then((result) => console.log(result.user))
       .catch((err) => console.log(err));
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
     const email = form.email.value;
     const password = form.password.value;
-    console.log({ email, password });
+    loginUser(email, password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((err) => console.log(err));
   };
   return (
     <div className="container col-xl-10 col-xxl-8 py-3">
