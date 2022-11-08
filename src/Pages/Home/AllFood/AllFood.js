@@ -7,13 +7,13 @@ const AllFood = () => {
   return (
     <div className="">
       <Row>
-        <Col>
+        <Col sm={12} md={6} lg={4}>
           <Food />
         </Col>
-        <Col>
+        <Col sm={12} md={6} lg={4}>
           <Food />
         </Col>
-        <Col>
+        <Col sm={12} md={6} lg={4}>
           <Food />
         </Col>
       </Row>

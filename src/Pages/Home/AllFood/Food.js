@@ -12,11 +12,11 @@ const Food = () => {
           <span className="text-white fw-bold">Name : Delecius Berger</span>
         </Card.Title>
         <Card.Text>
-          <h5 className="bg-danger text-white fw-bold py-2 text-center rounded-2">
+          <span className="d-block bg-danger text-white fw-bold py-2 text-center rounded-2">
             Price : $15
-          </h5>
+          </span>
 
-          <p className="lead text-justify">
+          <span className="d-block text-justify">
             A is but hear or scarce wished or startled sorrow the. I
             meaninglittle my and followed token visiter. This then wandering
             then that the the, darkness doubting of sitting thy this, a door the
@@ -26,7 +26,7 @@ const Food = () => {
             or lenore burning said heaven bird here, and nothing for still my
             thee me, least for word darkness he myself sainted within whose
             unbrokenquit. Clasp gently blessed the...
-          </p>
+          </span>
         </Card.Text>
         <div className="d-flex justify-content-between align-items-center">
           <div className="text-warning bg-secondary px-2 py-2 rounded-2 d-flex justify-content-center align-items-center">
