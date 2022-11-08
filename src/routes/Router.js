@@ -15,13 +15,13 @@ export const router = createBrowserRouter([
       {
         path: "/allfood",
         element: <AllFood />,
-        loader: () => fetch("http://localhost:8000/allfood"),
+        loader: () => fetch("https://tasty-bite-server.vercel.app/allfood"),
       },
       {
         path: "/allfood/:id",
         element: <FoodDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/allfood/${params.id}`),
+          fetch(`https://tasty-bite-server.vercel.app/allfood/${params.id}`),
       },
       {
         path: "/login",

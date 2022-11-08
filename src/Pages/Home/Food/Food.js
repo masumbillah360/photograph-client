@@ -7,7 +7,7 @@ import SingleFood from "../../Shared/SingleFood/SingleFood";
 const Food = () => {
   const [foods, setFoods] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:8000/homefood")
+    fetch("https://tasty-bite-server.vercel.app/homefood")
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, []);
