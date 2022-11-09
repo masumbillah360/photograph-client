@@ -19,13 +19,13 @@ const Revew = ({ review, setRefresh, refresh }) => {
   };
   return (
     <div className="border rounded-2 my-3">
-      <div className="d-flex justify-content-start align-items-center">
+      <div className="d-flex justify-content-start">
         <img
           className="rounded-circle p-2 user-thumb "
           src={userThumb}
           alt="userProfile"
         />
-        <div className="ms-1">
+        <div className="ms-1 mt-2">
           <h6>{userName}</h6>
           <p>{comments}</p>
         </div>

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { FaSignOutAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 const NavBar = () => {
@@ -47,11 +48,15 @@ const NavBar = () => {
           </Nav>
           {user?.email ? (
             <Nav className="ms-auto">
-              <Link to="/signup" className="nav-link">
-                {user?.displayName}
+              <Link to="/myreviews" className="nav-link">
+                {user?.uid}
               </Link>
-              <button onClick={handleLogOut} className="nav-link btn">
-                Logout
+              <button
+                onClick={handleLogOut}
+                className="nav-link btn"
+                title="Log Out"
+              >
+                <FaSignOutAlt className="text-danger" />
               </button>
             </Nav>
           ) : (
