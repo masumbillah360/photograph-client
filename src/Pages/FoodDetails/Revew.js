@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Revew = ({ review, setRefresh, refresh }) => {
-  const { _id, userThumb, name, comments } = review;
+  const { user } = useContext(AuthContext);
+  const { _id, userThumb, userName, comments } = review;
+  console.log(review);
   const handleDelete = (id) => {
     fetch(`http://localhost:8000/review/${id}`, {
       method: "DELETE",
@@ -23,7 +26,7 @@ const Revew = ({ review, setRefresh, refresh }) => {
           alt="userProfile"
         />
         <div className="ms-1">
-          <h6>{name}</h6>
+          <h6>{userName}</h6>
           <p>{comments}</p>
         </div>
       </div>

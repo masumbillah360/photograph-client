@@ -30,7 +30,7 @@ const FoodDetails = () => {
       postId: _id,
       email: user?.email,
       userThumb: user?.photoURL,
-      name: user?.name,
+      userName: user?.displayName,
       comments,
     };
     fetch("http://localhost:8000/review", {
