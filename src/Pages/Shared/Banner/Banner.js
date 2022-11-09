@@ -9,11 +9,12 @@ const Banner = () => {
       <Row className="justify-content-center align-items-center">
         <Col sm={12} md={6} className="text-center">
           <img className="img-fluid w-25 rounded-circle" src={logo} alt="" />
-          <h1 className="text-warning">
-            <span className="fw-bold text-danger text-decoration-underline">
+          <h1 className="text-white fw-bold">
+            <span className="text-danger text-decoration-underline">
               Your Test
             </span>
-            <br /> Our Commitment
+            <br />{" "}
+            <span className="bg-secondary px-2 rounded-2">Our Commitment</span>
           </h1>
           <p className="text-justify">
             Be more of lie the unhappy sainted nevermore evilprophet visiter.
