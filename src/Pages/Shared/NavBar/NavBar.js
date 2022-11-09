@@ -35,7 +35,9 @@ const NavBar = () => {
                 <Link className="nav-link" to="/myreviews">
                   My Reviews
                 </Link>
-                <Nav.Link href="#features">Add Service</Nav.Link>
+                <Link to="/addservice" className="nav-link">
+                  Add Service
+                </Link>
               </>
             ) : (
               <>

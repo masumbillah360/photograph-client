@@ -1,10 +1,8 @@
-import React, { useContext } from "react";
+import React from "react";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Revew = ({ review, setRefresh, refresh }) => {
-  const { user } = useContext(AuthContext);
   const { _id, userThumb, userName, comments } = review;
   console.log(review);
   const handleDelete = (id) => {

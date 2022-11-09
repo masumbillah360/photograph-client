@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages//Home/Home";
+import AddService from "../Pages/AddService/AddService";
 import AllFood from "../Pages/AllFood/AllFood";
 import FoodDetails from "../Pages/FoodDetails/FoodDetails";
 import Login from "../Pages/Login/Login";
@@ -17,7 +18,7 @@ export const router = createBrowserRouter([
       {
         path: "/allfood",
         element: <AllFood />,
-        loader: () => fetch("https://tasty-bite-server.vercel.app/allfood"),
+        loader: () => fetch("http://localhost:8000/allfood"),
       },
       {
         path: "/allfood/:id",
@@ -32,6 +33,7 @@ export const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:8000/myreviews/${params.id}`),
       },
+      { path: "addservice", element: <AddService /> },
       {
         path: "/login",
         element: <Login />,
