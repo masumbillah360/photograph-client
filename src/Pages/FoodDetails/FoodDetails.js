@@ -19,7 +19,11 @@ const FoodDetails = () => {
   const userEamil = user.email;
   setTitle(`Food Details-${name}`);
   useEffect(() => {
-    fetch(`http://localhost:8000/review?postId=${postId}&email=${userEamil}`)
+    fetch(`http://localhost:8000/review?postId=${postId}&email=${userEamil}`, {
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.log(err));
@@ -41,6 +45,7 @@ const FoodDetails = () => {
       method: "POST",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify(review),
     })

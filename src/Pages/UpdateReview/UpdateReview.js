@@ -23,6 +23,7 @@ const UpdateReview = () => {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
+        authorization: `Bearer ${localStorage.getItem("token")}`,
       },
       body: JSON.stringify(updatedReveiew),
     })

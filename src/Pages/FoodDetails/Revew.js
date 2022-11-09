@@ -10,6 +10,9 @@ const Revew = ({ review, setRefresh, refresh }) => {
   const handleDelete = (id) => {
     fetch(`http://localhost:8000/review/${id}`, {
       method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
     })
       .then(() => {
         console.log("deleted");
