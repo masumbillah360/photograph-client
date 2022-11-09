@@ -108,7 +108,7 @@ const FoodDetails = () => {
                 />
               </div>
             </form>
-            <div className="overflow-auto vh-100">
+            <div className="overflow-auto max-vh-100">
               {reviews.map((review, idx) => (
                 <Revew
                   key={idx}

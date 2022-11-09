@@ -16,6 +16,7 @@ const auth = getAuth(app);
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -56,6 +57,9 @@ const AuthProvider = ({ children }) => {
   };
   const authInfo = {
     user,
+    setUser,
+    error,
+    setError,
     loading,
     googleSignIn,
     userSignIn,

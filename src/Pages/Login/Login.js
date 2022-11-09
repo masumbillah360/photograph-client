@@ -1,17 +1,29 @@
 import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { TitleContext } from "../../context/TitleContext/TitleContext";
 
 const Login = () => {
-  const { googleSignIn, loginUser } = useContext(AuthContext);
+  const { googleSignIn, loginUser, setUser, setError } =
+    useContext(AuthContext);
   const { setTitle } = useContext(TitleContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+  const from = location.state?.from?.pathname || "/";
   setTitle("Login");
   const handleGoogleLogin = () => {
     googleSignIn()
-      .then((result) => console.log(result.user))
-      .catch((err) => console.log(err));
+      .then((result) => {
+        console.log(result.user);
+        setUser(result.user);
+        navigate(from, { replace: true });
+        setError("");
+      })
+      .catch((err) => {
+        console.log(err);
+        setError(err.message);
+      });
   };
 
   const handleSubmit = (e) => {
@@ -22,8 +34,14 @@ const Login = () => {
     loginUser(email, password)
       .then((result) => {
         console.log(result.user);
+        setUser(result.user);
+
+        navigate(from, { replace: true });
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+        setError(err.message);
+      });
   };
   return (
     <div className="container col-xl-10 col-xxl-8 py-3">
