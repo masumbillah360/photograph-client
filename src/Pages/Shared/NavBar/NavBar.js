@@ -46,10 +46,10 @@ const NavBar = () => {
               </>
             )}
           </Nav>
-          {user?.email ? (
+          {user?.uid ? (
             <Nav className="ms-auto">
               <Link to="/myreviews" className="nav-link">
-                {user?.uid}
+                {user?.displayName}
               </Link>
               <button
                 onClick={handleLogOut}
