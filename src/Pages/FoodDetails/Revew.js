@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 
 const Revew = ({ review, setRefresh, refresh }) => {
-  const { _id, userThumb, userName, comments } = review;
+  const { _id, userThumb, userName, comments, email } = review;
+  const { user } = useContext(AuthContext);
   console.log(review);
   const handleDelete = (id) => {
     fetch(`http://localhost:8000/review/${id}`, {
@@ -29,18 +31,24 @@ const Revew = ({ review, setRefresh, refresh }) => {
         </div>
       </div>
       <div className="d-flex justify-content-end">
-        <Link
-          to={`/updatereviews/${_id}`}
-          className="btn btn-outline-info me-2"
-        >
-          Edit
-        </Link>
-        <button
-          onClick={() => handleDelete(_id)}
-          className="btn btn-outline-danger"
-        >
-          <FaTrash />
-        </button>
+        {user.email === email ? (
+          <>
+            <Link
+              to={`/updatereviews/${_id}`}
+              className="btn btn-outline-info me-2"
+            >
+              Edit
+            </Link>
+            <button
+              onClick={() => handleDelete(_id)}
+              className="btn btn-outline-danger"
+            >
+              <FaTrash />
+            </button>
+          </>
+        ) : (
+          <></>
+        )}
       </div>
     </div>
   );

@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { TitleContext } from "../../context/TitleContext/TitleContext";
 
 const Signup = () => {
   const { userSignIn, updateUserInfo } = useContext(AuthContext);
+  const { setTitle } = useContext(TitleContext);
+  setTitle("Sign Up");
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;

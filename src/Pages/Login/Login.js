@@ -2,9 +2,12 @@ import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { TitleContext } from "../../context/TitleContext/TitleContext";
 
 const Login = () => {
   const { googleSignIn, loginUser } = useContext(AuthContext);
+  const { setTitle } = useContext(TitleContext);
+  setTitle("Login");
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => console.log(result.user))

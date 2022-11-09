@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Col, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
+import { TitleContext } from "../../context/TitleContext/TitleContext";
 
 const UpdateReview = () => {
+  const { setTitle } = useContext(TitleContext);
   const data = useLoaderData();
   console.log(data);
   const { _id, postName, postId, comments, email, userThumb } = data;
+  setTitle(`Update Review-${postName}`);
   const handleUpdate = (e) => {
     e.preventDefault();
     const newReview = e.target.newReview.value;
@@ -29,7 +32,13 @@ const UpdateReview = () => {
   };
   return (
     <Row>
-      <Col sm={12} md={5}></Col>
+      <Col sm={12} md={5}>
+        <div className="mt-3 d-flex flex-column justify-content-center align-items-center h-100">
+          <h1 className="text-center">Update Your Review Now</h1>
+          <p className="fw-bold lead">Stay With Us!</p>
+          <p className="fw-bold text-success lead">Thank You.</p>
+        </div>
+      </Col>
       <Col sm={12} md={7}>
         <div className="my-5">
           <form onSubmit={handleUpdate}>

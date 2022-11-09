@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Form } from "react-bootstrap";
+import { TitleContext } from "../../context/TitleContext/TitleContext";
 
 const AddService = () => {
+  const { setTitle } = useContext(TitleContext);
+  setTitle("Add Service");
   const handlePostSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -31,7 +34,7 @@ const AddService = () => {
   return (
     <div>
       <Form onSubmit={handlePostSubmit}>
-        <Form.Group className="mb-3" controlId="title">
+        <Form.Group className="mb-3" id="title">
           <Form.Label>Post Title</Form.Label>
           <Form.Control
             id="title"
@@ -40,11 +43,11 @@ const AddService = () => {
             placeholder="post title..."
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="photoURL">
+        <Form.Group className="mb-3" id="photoURL">
           <Form.Label id="photoURL">Photo URL</Form.Label>
           <Form.Control name="photoUrl" type="url" placeholder="Photo url..." />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="Price">
+        <Form.Group className="mb-3" id="Price">
           <Form.Label>Price</Form.Label>
           <Form.Control
             name="price"
@@ -53,7 +56,7 @@ const AddService = () => {
             id="Price"
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="postDesc">
+        <Form.Group className="mb-3" id="postDesc">
           <Form.Label>Write Post Description</Form.Label>
           <Form.Control
             as="textarea"

@@ -1,13 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { TitleContext } from "../../context/TitleContext/TitleContext";
 import SingleReview from "./SingleReview";
 
 const MyReviews = () => {
   const { user } = useContext(AuthContext);
+  const { setTitle } = useContext(TitleContext);
   const [reviews, setReviews] = useState([]);
   const [reload, setReload] = useState(false);
   const email = user?.email;
+  setTitle("My-Reviews");
   useEffect(() => {
     fetch(`http://localhost:8000/myreviews?email=${email}`)
       .then((res) => res.json())
