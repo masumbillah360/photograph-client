@@ -1,6 +1,7 @@
 import React from "react";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const SingleReview = ({ review, idx, setReload, reload }) => {
   const { _id } = review;
@@ -8,7 +9,10 @@ const SingleReview = ({ review, idx, setReload, reload }) => {
     fetch(`http://localhost:8000/review/${id}`, {
       method: "DELETE",
     })
-      .then(() => setReload(!reload))
+      .then(() => {
+        setReload(!reload);
+        toast.success("Successfully Deleted");
+      })
       .catch((err) => console.log(err));
   };
   return (

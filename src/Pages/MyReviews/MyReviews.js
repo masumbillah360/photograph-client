@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import Table from "react-bootstrap/Table";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import { TitleContext } from "../../context/TitleContext/TitleContext";
 import SingleReview from "./SingleReview";
@@ -46,6 +48,18 @@ const MyReviews = () => {
           <h1 className="fw-bold text-muted">No Reviews Found</h1>
         </div>
       )}
+      <ToastContainer
+        position="top-center"
+        autoClose={1000}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme="colored"
+      />
     </div>
   );
 };
