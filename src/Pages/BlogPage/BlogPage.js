@@ -1,10 +1,9 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Table } from "react-bootstrap";
-import { TitleContext } from "../../context/TitleContext/TitleContext";
+import useTitle from "../../hooks/useTitle";
 
 const BlogPage = () => {
-  const { setTitle } = useContext(TitleContext);
-  setTitle("Blog");
+  useTitle("Blog");
   return (
     <div>
       <hr className="featurette-divider" />

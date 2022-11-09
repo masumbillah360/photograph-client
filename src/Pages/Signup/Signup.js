@@ -1,13 +1,14 @@
 import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-import { TitleContext } from "../../context/TitleContext/TitleContext";
+import useTitle from "../../hooks/useTitle";
 
 const Signup = () => {
-  const { userSignIn, updateUserInfo } = useContext(AuthContext);
-  const { setTitle } = useContext(TitleContext);
-  setTitle("Sign Up");
+  const { userSignIn, updateUserInfo, setUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  useTitle("Sign Up");
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,8 +17,15 @@ const Signup = () => {
     const photoURL = form.photoURL.value;
     const password = form.password.value;
     userSignIn(email, password).then((result) => {
-      console.log(result.user);
+      setUser(result.user);
       handleUpdateInfo(name, photoURL);
+      Swal.fire({
+        title: "Successfully SignUp",
+        text: "Please Login Now!",
+        icon: "success",
+        confirmButtonText: "Login Now!",
+      });
+      navigate("/login");
     });
   };
   const handleUpdateInfo = (name, photoURL) => {

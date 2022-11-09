@@ -2,16 +2,15 @@ import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-import { TitleContext } from "../../context/TitleContext/TitleContext";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
   const { googleSignIn, loginUser, setUser, setError } =
     useContext(AuthContext);
-  const { setTitle } = useContext(TitleContext);
   const location = useLocation();
   const navigate = useNavigate();
+  useTitle("Login");
   const from = location.state?.from?.pathname || "/";
-  setTitle("Login");
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
@@ -41,6 +40,7 @@ const Login = () => {
           method: "POST",
           headers: {
             "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("token")}`,
           },
           body: JSON.stringify(currentUser),
         })

@@ -44,7 +44,11 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/myreviews/${params.id}`),
+          fetch(`http://localhost:8000/myreviews/${params.id}`, {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }),
       },
       {
         path: "addservice",

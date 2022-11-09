@@ -1,11 +1,10 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Form } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
-import { TitleContext } from "../../context/TitleContext/TitleContext";
+import useTitle from "../../hooks/useTitle";
 
 const AddService = () => {
-  const { setTitle } = useContext(TitleContext);
-  setTitle("Add Service");
+  useTitle("AddService");
   const handlePostSubmit = (e) => {
     e.preventDefault();
     const form = e.target;

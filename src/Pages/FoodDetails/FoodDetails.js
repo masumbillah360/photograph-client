@@ -5,19 +5,18 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
-import { TitleContext } from "../../context/TitleContext/TitleContext";
+import useTitle from "../../hooks/useTitle";
 import Revew from "./Revew";
 
 const FoodDetails = () => {
-  const { setTitle } = useContext(TitleContext);
   const [reviews, setReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
+  useTitle("FoodDetails");
   const { user } = useContext(AuthContext);
   const foodInfo = useLoaderData();
   const { _id, name, description, price, picture } = foodInfo;
   const postId = _id;
   const userEamil = user.email;
-  setTitle(`Food Details-${name}`);
   useEffect(() => {
     fetch(`http://localhost:8000/review?postId=${postId}&email=${userEamil}`, {
       headers: {

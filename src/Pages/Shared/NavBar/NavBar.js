@@ -12,6 +12,7 @@ const NavBar = () => {
     logOutUser()
       .then(() => {
         console.log("log Out");
+        localStorage.removeItem("toke");
       })
       .catch((err) => {
         console.log(err);

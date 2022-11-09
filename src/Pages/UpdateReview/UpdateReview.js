@@ -1,14 +1,12 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { useLoaderData } from "react-router-dom";
-import { TitleContext } from "../../context/TitleContext/TitleContext";
+import useTitle from "../../hooks/useTitle";
 
 const UpdateReview = () => {
-  const { setTitle } = useContext(TitleContext);
   const data = useLoaderData();
-  console.log(data);
   const { _id, postName, postId, comments, email, userThumb } = data;
-  setTitle(`Update Review-${postName}`);
+  useTitle("updatedReveiew");
   const handleUpdate = (e) => {
     e.preventDefault();
     const newReview = e.target.newReview.value;
