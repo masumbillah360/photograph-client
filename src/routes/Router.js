@@ -3,6 +3,7 @@ import Main from "../Layout/Main";
 import Home from "../Pages//Home/Home";
 import AddService from "../Pages/AddService/AddService";
 import AllFood from "../Pages/AllFood/AllFood";
+import BlogPage from "../Pages/BlogPage/BlogPage";
 import FoodDetails from "../Pages/FoodDetails/FoodDetails";
 import Login from "../Pages/Login/Login";
 import MyReviews from "../Pages/MyReviews/MyReviews";
@@ -34,10 +35,8 @@ export const router = createBrowserRouter([
           fetch(`http://localhost:8000/myreviews/${params.id}`),
       },
       { path: "addservice", element: <AddService /> },
-      {
-        path: "/login",
-        element: <Login />,
-      },
+      { path: "/blog", element: <BlogPage /> },
+      { path: "/login", element: <Login /> },
       { path: "/signup", element: <Signup /> },
     ],
   },

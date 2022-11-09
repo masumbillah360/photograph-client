@@ -30,19 +30,17 @@ const NavBar = () => {
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="ms-auto responsive-navbar-nav">
           <Nav className="me-auto">
-            {user?.email ? (
+            {user?.email && (
               <>
-                <Nav.Link href="#features">Blog</Nav.Link>
+                <Link className="nav-link" to="/blog">
+                  Blog
+                </Link>
                 <Link className="nav-link" to="/myreviews">
                   My Reviews
                 </Link>
                 <Link to="/addservice" className="nav-link">
                   Add Service
                 </Link>
-              </>
-            ) : (
-              <>
-                <Nav.Link href="#features">Blog</Nav.Link>
               </>
             )}
           </Nav>
