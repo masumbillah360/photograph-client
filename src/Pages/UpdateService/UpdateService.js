@@ -11,7 +11,7 @@ const UpdateService = () => {
   const { _id, description, name, price, picture } = data;
   const { user } = useContext(AuthContext);
   useTitle("Update Service");
-  const handlePostSubmit = (e) => {
+  const handleUpdateService = (e) => {
     e.preventDefault();
     const form = e.target;
     const postTitle = form?.title?.value;
@@ -27,7 +27,7 @@ const UpdateService = () => {
       description: postDesc,
       date,
     };
-    console.log(updatedInfo);
+    // update method call here
     fetch(`http://localhost:8000/myservices/${_id}`, {
       method: "PATCH",
       headers: {
@@ -46,7 +46,7 @@ const UpdateService = () => {
   };
   return (
     <div>
-      <Form onSubmit={handlePostSubmit}>
+      <Form onSubmit={handleUpdateService}>
         <Form.Group className="mb-3" id="title">
           <Form.Label>Post Title</Form.Label>
           <Form.Control
@@ -96,6 +96,7 @@ const UpdateService = () => {
           ></Form.Control>
         </Form.Group>
       </Form>
+      {/* for show toast  */}
       <ToastContainer
         position="top-center"
         autoClose={1000}

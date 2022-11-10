@@ -42,6 +42,7 @@ const FoodDetails = () => {
       comments,
       time,
     };
+    // sent reivew on server
     fetch("http://localhost:8000/review", {
       method: "POST",
       headers: {
@@ -57,6 +58,7 @@ const FoodDetails = () => {
       })
       .catch((err) => console.log(err));
   };
+  //delete post function
   const handleDeletePost = (id) => {
     console.log(id);
     fetch(`http://localhost:8000/myservices/${id}`, {
@@ -75,6 +77,7 @@ const FoodDetails = () => {
 
   return (
     <Row>
+      {/* start food details section  */}
       <Col sm={12} md={8}>
         <Card>
           <PhotoProvider>
@@ -94,6 +97,7 @@ const FoodDetails = () => {
               <span className="d-block text-justify mt-2">{description}</span>
             </Card.Text>
             <div className="d-flex justify-content-between align-items-center">
+              {/* rating section  */}
               <div className="text-warning bg-secondary px-2 py-2 rounded-2 d-flex justify-content-center align-items-center">
                 <FaStar />
                 <FaStar />
@@ -102,6 +106,7 @@ const FoodDetails = () => {
                 <FaStarHalf />
               </div>
               <>
+                {/* conditional rendering for user to delete and update post/service info */}
                 {userEmail === foodInfo?.email && (
                   <div>
                     <Link
@@ -122,10 +127,15 @@ const FoodDetails = () => {
             </div>
           </Card.Body>
         </Card>
+        {/* end card  */}
       </Col>
+      {/* end food details section  */}
+
+      {/* start review section  */}
       <Col sm={12} md={4}>
         {user.uid ? (
           <div className="mb-3">
+            {/* review form  */}
             <form onSubmit={handleReview}>
               <label
                 htmlFor="exampleFormControlTextarea1"
@@ -147,6 +157,9 @@ const FoodDetails = () => {
                 />
               </div>
             </form>
+            {/* end form  */}
+
+            {/* show user review  */}
             <div className="overflow-auto vh-100 sm:h-auto">
               {reviews.map((review, idx) => (
                 <Revew
@@ -159,6 +172,7 @@ const FoodDetails = () => {
             </div>
           </div>
         ) : (
+          // conditional rendering for unauthorised users
           <div className="text-center mt-4">
             <h3>Please Login to Write Review</h3>
             <Link className="btn btn-sm btn-outline-success" to="/login">

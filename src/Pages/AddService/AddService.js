@@ -6,7 +6,9 @@ import useTitle from "../../hooks/useTitle";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
+  //custom hooks for change page title
   useTitle("AddService");
+
   const handlePostSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -23,7 +25,7 @@ const AddService = () => {
       description: postDesc,
       date,
     };
-    console.log(postInfo);
+    // send service info on database
     fetch("http://localhost:8000/allfood", {
       method: "POST",
       headers: {
@@ -36,6 +38,7 @@ const AddService = () => {
       .then((data) => {
         console.log(data);
         toast.success("Successfully Added Your Items");
+        form.reset();
       })
       .catch((err) => console.log(err));
   };
@@ -87,6 +90,8 @@ const AddService = () => {
           ></Form.Control>
         </Form.Group>
       </Form>
+
+      {/* for toast  */}
       <ToastContainer
         position="top-center"
         autoClose={1000}

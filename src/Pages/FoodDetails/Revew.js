@@ -7,6 +7,7 @@ const Revew = ({ review, setRefresh, refresh }) => {
   const { _id, userThumb, userName, comments, email } = review;
   const { user } = useContext(AuthContext);
   console.log(review);
+  // delet review functions
   const handleDelete = (id) => {
     fetch(`http://localhost:8000/review/${id}`, {
       method: "DELETE",

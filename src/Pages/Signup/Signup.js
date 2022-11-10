@@ -9,6 +9,7 @@ const Signup = () => {
   const { userSignIn, updateUserInfo, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   useTitle("Sign Up");
+  // get form info and sign in user
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -16,9 +17,11 @@ const Signup = () => {
     const email = form.email.value;
     const photoURL = form.photoURL.value;
     const password = form.password.value;
+    // sign in functio
     userSignIn(email, password).then((result) => {
       setUser(result.user);
       handleUpdateInfo(name, photoURL);
+      // show alert for signed user
       Swal.fire({
         title: "Successfully SignUp",
         text: "Please Login Now!",
@@ -28,6 +31,7 @@ const Signup = () => {
       navigate("/login");
     });
   };
+  // update user info function
   const handleUpdateInfo = (name, photoURL) => {
     const profile = {
       displayName: name,
@@ -42,6 +46,7 @@ const Signup = () => {
   return (
     <div className="container col-xl-10 col-xxl-8 py-3">
       <div className="row align-items-center g-lg-5 py-5">
+        {/* sign up page information  */}
         <div className="col-lg-6 text-center text-lg-end">
           <h1 className="fw-bold lh-1 mb-3">To Get Your Favorite Items</h1>
           <p className="lead">
@@ -58,6 +63,7 @@ const Signup = () => {
             </button>
           </div>
         </div>
+        {/* sign up page form  */}
         <div className="col-md-10 mx-auto col-lg-6">
           <form
             onSubmit={handleSubmit}

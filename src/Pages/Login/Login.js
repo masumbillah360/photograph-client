@@ -11,6 +11,7 @@ const Login = () => {
   const navigate = useNavigate();
   useTitle("Login");
   const from = location.state?.from?.pathname || "/";
+  // google login function
   const handleGoogleLogin = () => {
     googleSignIn()
       .then((result) => {
@@ -25,6 +26,7 @@ const Login = () => {
       });
   };
 
+  //with email and password login function
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -36,6 +38,7 @@ const Login = () => {
         setUser(result.user);
         const user = result.user;
         const currentUser = { email: user?.email };
+        // user verify by jwt token
         fetch("http://localhost:8000/jwt", {
           method: "POST",
           headers: {
@@ -45,6 +48,7 @@ const Login = () => {
           body: JSON.stringify(currentUser),
         })
           .then((res) => res.json())
+          // set token on localStorage
           .then((data) => localStorage.setItem("token", data.token))
           .catch((err) => console.log(err));
 
@@ -58,6 +62,7 @@ const Login = () => {
   return (
     <div className="container col-xl-10 col-xxl-8 py-3">
       <div className="row align-items-center g-lg-5 py-5">
+        {/* information section  */}
         <div className="col-lg-6 text-center text-lg-end">
           <h1 className="fw-bold lh-1 mb-3">To Get Your Favorite Items</h1>
           <p className="lead">
@@ -77,6 +82,8 @@ const Login = () => {
             </button>
           </div>
         </div>
+
+        {/* login section  */}
         <div className="col-md-10 mx-auto col-lg-6">
           <form
             onSubmit={handleSubmit}

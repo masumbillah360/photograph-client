@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../../../assets/logo.jpg";
 
+// owner section for home page
 const Owner = () => {
   return (
     <div className="px-4 py-5 my-5 text-center bg-light rounded-2">

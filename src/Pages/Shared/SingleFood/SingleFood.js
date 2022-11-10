@@ -38,7 +38,7 @@ const SingleFood = ({ food }) => {
             <FaStarHalf />
           </div>
           <Link
-            to={`/allfood/${_id}`}
+            to={`/fooddetails/${_id}`}
             className="btn btn-outline-danger btn-sm fs-6"
           >
             <FaArrowRight />

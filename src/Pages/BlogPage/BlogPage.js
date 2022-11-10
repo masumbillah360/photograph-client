@@ -8,6 +8,7 @@ const BlogPage = () => {
     <div>
       <hr className="featurette-divider" />
 
+      {/* blog - 1 */}
       <div className="row featurette">
         <div className="col-md-8">
           <h2 className="featurette-heading fw-normal lh-1">
@@ -76,7 +77,7 @@ const BlogPage = () => {
       </div>
 
       <hr className="featurette-divider" />
-
+      {/* blog -2 */}
       <div className="row featurette">
         <div className="col-md-8 order-md-2">
           <h2 className="featurette-heading fw-normal lh-1">
@@ -150,7 +151,7 @@ const BlogPage = () => {
       </div>
 
       <hr className="featurette-divider" />
-
+      {/* blog -3 */}
       <div className="row featurette">
         <div className="col-md-8">
           <h2 className="featurette-heading fw-normal lh-1">
@@ -240,7 +241,7 @@ const BlogPage = () => {
       </div>
 
       <hr className="featurette-divider" />
-
+      {/* blog- 4  */}
       <div className="row featurette">
         <div className="col-md-8 order-md-2">
           <h2 className="featurette-heading fw-normal lh-1">

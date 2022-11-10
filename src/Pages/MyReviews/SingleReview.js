@@ -5,6 +5,8 @@ import { toast } from "react-toastify";
 
 const SingleReview = ({ review, idx, setReload, reload }) => {
   const { _id } = review;
+
+  //delete review function
   const handleDelete = (id) => {
     fetch(`http://localhost:8000/review/${id}`, {
       method: "DELETE",
@@ -24,6 +26,7 @@ const SingleReview = ({ review, idx, setReload, reload }) => {
       <td>{review.comments}</td>
       <td>{review.postName}</td>
       <td className="d-flex justify-content-end">
+        {/* update review page link  */}
         <Link to={`/updatereviews/${_id}`} className="btn btn-sm btn-info me-2">
           Update
         </Link>

@@ -1,9 +1,10 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 
 const UpdateReview = () => {
+  const navigate = useNavigate();
   const data = useLoaderData();
   const { _id, postName, postId, comments, email, userThumb } = data;
   useTitle("updatedReveiew");
@@ -17,6 +18,7 @@ const UpdateReview = () => {
       email,
       userThumb,
     };
+    // update review method function
     fetch(`http://localhost:8000/review/${_id}`, {
       method: "PATCH",
       headers: {
@@ -26,7 +28,7 @@ const UpdateReview = () => {
       body: JSON.stringify(updatedReveiew),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => navigate("/myreviews"))
       .catch((err) => console.log(err));
   };
   return (
@@ -38,6 +40,7 @@ const UpdateReview = () => {
           <p className="fw-bold text-success lead">Thank You.</p>
         </div>
       </Col>
+      {/* update form  */}
       <Col sm={12} md={7}>
         <div className="my-5">
           <form onSubmit={handleUpdate}>

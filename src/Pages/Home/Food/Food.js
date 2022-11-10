@@ -6,7 +6,7 @@ import SingleFood from "../../Shared/SingleFood/SingleFood";
 
 const Food = () => {
   const [foods, setFoods] = useState([]);
-  console.log(foods);
+  // load data for hom page
   useEffect(() => {
     fetch("http://localhost:8000/homefood")
       .then((res) => res.json())
@@ -15,6 +15,7 @@ const Food = () => {
   return (
     <div className="">
       <Row className="gy-4">
+        {/* showing load data on single food page  */}
         {foods.map((food, idx) => (
           <Col sm={12} md={6} key={idx}>
             <SingleFood key={idx} food={food} />
