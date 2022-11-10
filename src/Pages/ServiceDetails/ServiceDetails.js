@@ -18,8 +18,6 @@ const ServiceDetails = () => {
   const { _id, name, description, price, picture } = serviceInfo;
   const postId = _id;
   const userEmail = user.email;
-  console.log(serviceInfo.email);
-  console.log(userEmail);
   useEffect(() => {
     fetch(
       `https://tasty-bite-server.vercel.app/review?postId=${postId}&email=${userEmail}`,

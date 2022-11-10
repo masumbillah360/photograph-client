@@ -1,10 +1,24 @@
-# Getting Started with Create React App
+# Getting Started with Photo-Graph
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Live Site Link [Phot-Graph](https://photo-graph-client.web.app/).
 
-## Available Scripts
+## Feature of this website
 
-In the project directory, you can run:
+- Email and google login/authentication
+- User can gives reviews
+- User can add a service
+- User can read/write/update/delete his own services
+- User will be show other's users reivew etc.
+
+## Used technology for this website
+
+- ReactJs
+- ExpressJs
+- React bootstrap
+- firebase
+- react-router-dom
+
+* sweetalert2
 
 ### `yarn start`
 
