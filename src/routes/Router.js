@@ -10,6 +10,7 @@ import MyReviews from "../Pages/MyReviews/MyReviews";
 import MyServices from "../Pages/MyServices/MyServices";
 import Signup from "../Pages/Signup/Signup";
 import UpdateReview from "../Pages/UpdateReview/UpdateReview";
+import UpdateService from "../Pages/UpdateService/UpdateService";
 import PrivateRoute from "./PrivateRoute";
 
 export const router = createBrowserRouter([
@@ -27,7 +28,7 @@ export const router = createBrowserRouter([
         path: "/allfood/:id",
         element: <FoodDetails />,
         loader: ({ params }) =>
-          fetch(`https://tasty-bite-server.vercel.app/allfood/${params.id}`),
+          fetch(`http://localhost:8000/allfood/${params.id}`),
       },
       {
         path: "/myreviews",
@@ -66,6 +67,16 @@ export const router = createBrowserRouter([
             <MyServices />
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/updateService/:id",
+        element: <UpdateService />,
+        loader: ({ params }) =>
+          fetch(`http://localhost:8000/myservices/${params.id}`, {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }),
       },
       { path: "/blog", element: <BlogPage /> },
       { path: "/login", element: <Login /> },

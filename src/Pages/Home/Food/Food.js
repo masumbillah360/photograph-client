@@ -6,6 +6,7 @@ import SingleFood from "../../Shared/SingleFood/SingleFood";
 
 const Food = () => {
   const [foods, setFoods] = useState([]);
+  console.log(foods);
   useEffect(() => {
     fetch("http://localhost:8000/homefood")
       .then((res) => res.json())

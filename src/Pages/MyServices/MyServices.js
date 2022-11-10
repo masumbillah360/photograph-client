@@ -3,6 +3,7 @@ import SingleFood from "../Shared/SingleFood/SingleFood";
 
 const MyServices = () => {
   const [services, setServices] = useState([]);
+  const [reload, setReload] = useState(false);
   useEffect(() => {
     fetch("http://localhost:8000/myservices", {
       headers: {
@@ -12,13 +13,18 @@ const MyServices = () => {
       .then((res) => res.json())
       .then((data) => setServices(data))
       .catch((err) => console.log(err));
-  }, []);
+  }, [reload]);
   return (
     <>
       {services.length > 0 ? (
         <div>
           {services.map((service) => (
-            <SingleFood key={service._id} food={service} />
+            <SingleFood
+              key={service._id}
+              food={service}
+              reload={reload}
+              setReload={setReload}
+            />
           ))}
         </div>
       ) : (

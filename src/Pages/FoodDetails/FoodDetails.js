@@ -3,7 +3,7 @@ import { Card, Col, Row } from "react-bootstrap";
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 import Revew from "./Revew";
@@ -14,11 +14,13 @@ const FoodDetails = () => {
   useTitle("FoodDetails");
   const { user } = useContext(AuthContext);
   const foodInfo = useLoaderData();
+  const navigate = useNavigate();
   const { _id, name, description, price, picture } = foodInfo;
   const postId = _id;
-  const userEamil = user.email;
+  const userEmail = user.email;
+  console.log(foodInfo.email === userEmail);
   useEffect(() => {
-    fetch(`http://localhost:8000/review?postId=${postId}&email=${userEamil}`, {
+    fetch(`http://localhost:8000/review?postId=${postId}&email=${userEmail}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },
@@ -26,7 +28,7 @@ const FoodDetails = () => {
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.log(err));
-  }, [refresh, postId, userEamil]);
+  }, [refresh, postId, userEmail]);
   const handleReview = (e) => {
     e.preventDefault();
     const comments = e.target.review.value;
@@ -52,6 +54,21 @@ const FoodDetails = () => {
       .then((data) => {
         console.log(data);
         setRefresh(!refresh);
+      })
+      .catch((err) => console.log(err));
+  };
+  const handleDeletePost = (id) => {
+    console.log(id);
+    fetch(`http://localhost:8000/myservices/${id}`, {
+      method: "DELETE",
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        navigate("/myservices");
       })
       .catch((err) => console.log(err));
   };
@@ -84,6 +101,24 @@ const FoodDetails = () => {
                 <FaStar />
                 <FaStarHalf />
               </div>
+              <>
+                {userEmail === foodInfo?.email && (
+                  <div>
+                    <Link
+                      to={`/updateService/${_id}`}
+                      className="btn btn-sm btn-outline-info me-2"
+                    >
+                      Update
+                    </Link>
+                    <button
+                      onClick={() => handleDeletePost(_id)}
+                      className="btn btn-sm btn-outline-danger"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                )}
+              </>
             </div>
           </Card.Body>
         </Card>
