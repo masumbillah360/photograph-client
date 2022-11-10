@@ -15,7 +15,7 @@ const Service = () => {
   return (
     <div className="">
       <Row className="gy-4">
-        {/* showing load data on single food page  */}
+        {/* showing load data on single Service page  */}
         {service.map((serv) => (
           <Col sm={12} md={4} key={serv._id}>
             <SingleService service={serv} />
