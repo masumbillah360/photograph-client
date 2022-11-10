@@ -4,11 +4,7 @@ import "./App.css";
 import { router } from "./routes/Router";
 
 function App() {
-  return (
-    <div className="container">
-      <RouterProvider router={router} />
-    </div>
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;

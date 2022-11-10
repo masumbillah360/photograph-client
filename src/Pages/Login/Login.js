@@ -60,7 +60,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="container col-xl-10 col-xxl-8 py-3">
+    <div className=" col-xl-10 col-xxl-8 py-3">
       <div className="row align-items-center g-lg-5 py-5">
         {/* information section  */}
         <div className="col-lg-6 text-center text-lg-end">

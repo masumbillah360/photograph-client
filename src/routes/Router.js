@@ -20,15 +20,17 @@ export const router = createBrowserRouter([
     children: [
       { path: "/", element: <Home /> },
       {
-        path: "/allfood",
+        path: "/allservices",
         element: <AllServices />,
-        loader: () => fetch("https://tasty-bite-server.vercel.app/allfood"),
+        loader: () => fetch("https://tasty-bite-server.vercel.app/allservices"),
       },
       {
         path: "/fooddetails/:id",
         element: <ServiceDetails />,
         loader: ({ params }) =>
-          fetch(`https://tasty-bite-server.vercel.app/allfood/${params.id}`),
+          fetch(
+            `https://tasty-bite-server.vercel.app/allservices/${params.id}`
+          ),
       },
       {
         path: "/myreviews",

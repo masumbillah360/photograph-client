@@ -62,7 +62,6 @@ const ServiceDetails = () => {
   };
   //delete post function
   const handleDeletePost = (id) => {
-    console.log(id);
     fetch(`https://tasty-bite-server.vercel.app/myservices/${id}`, {
       method: "DELETE",
       headers: {
