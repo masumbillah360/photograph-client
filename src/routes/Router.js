@@ -25,7 +25,7 @@ export const router = createBrowserRouter([
         loader: () => fetch("https://tasty-bite-server.vercel.app/allservices"),
       },
       {
-        path: "/fooddetails/:id",
+        path: "/servicedetails/:id",
         element: <ServiceDetails />,
         loader: ({ params }) =>
           fetch(

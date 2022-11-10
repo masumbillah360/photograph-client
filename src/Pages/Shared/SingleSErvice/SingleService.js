@@ -38,7 +38,7 @@ const SingleService = ({ service }) => {
             <FaStarHalf />
           </div>
           <Link
-            to={`/fooddetails/${_id}`}
+            to={`/servicedetails/${_id}`}
             className="btn btn-outline-danger btn-sm fs-6"
           >
             <FaArrowRight />
