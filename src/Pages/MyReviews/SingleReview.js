@@ -8,7 +8,7 @@ const SingleReview = ({ review, idx, setReload, reload }) => {
 
   //delete review function
   const handleDelete = (id) => {
-    fetch(`http://localhost:8000/review/${id}`, {
+    fetch(`https://tasty-bite-server.vercel.app/review/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,

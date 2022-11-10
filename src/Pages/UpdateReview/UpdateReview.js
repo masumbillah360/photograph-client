@@ -19,7 +19,7 @@ const UpdateReview = () => {
       userThumb,
     };
     // update review method function
-    fetch(`http://localhost:8000/review/${_id}`, {
+    fetch(`https://tasty-bite-server.vercel.app/review/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

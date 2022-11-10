@@ -28,7 +28,7 @@ const UpdateService = () => {
       date,
     };
     // update method call here
-    fetch(`http://localhost:8000/myservices/${_id}`, {
+    fetch(`https://tasty-bite-server.vercel.app/myservices/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

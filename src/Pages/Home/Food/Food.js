@@ -8,7 +8,7 @@ const Food = () => {
   const [foods, setFoods] = useState([]);
   // load data for hom page
   useEffect(() => {
-    fetch("http://localhost:8000/homefood")
+    fetch("https://tasty-bite-server.vercel.app/homefood")
       .then((res) => res.json())
       .then((data) => setFoods(data));
   }, []);
@@ -17,7 +17,7 @@ const Food = () => {
       <Row className="gy-4">
         {/* showing load data on single food page  */}
         {foods.map((food, idx) => (
-          <Col sm={12} md={6} key={idx}>
+          <Col sm={12} md={4} key={idx}>
             <SingleFood key={idx} food={food} />
           </Col>
         ))}

@@ -20,11 +20,14 @@ const FoodDetails = () => {
   const userEmail = user.email;
   console.log(foodInfo.email === userEmail);
   useEffect(() => {
-    fetch(`http://localhost:8000/review?postId=${postId}&email=${userEmail}`, {
-      headers: {
-        authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    })
+    fetch(
+      `https://tasty-bite-server.vercel.app/review?postId=${postId}&email=${userEmail}`,
+      {
+        headers: {
+          authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    )
       .then((res) => res.json())
       .then((data) => setReviews(data))
       .catch((err) => console.log(err));
@@ -43,7 +46,7 @@ const FoodDetails = () => {
       time,
     };
     // sent reivew on server
-    fetch("http://localhost:8000/review", {
+    fetch("https://tasty-bite-server.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -61,7 +64,7 @@ const FoodDetails = () => {
   //delete post function
   const handleDeletePost = (id) => {
     console.log(id);
-    fetch(`http://localhost:8000/myservices/${id}`, {
+    fetch(`https://tasty-bite-server.vercel.app/myservices/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,

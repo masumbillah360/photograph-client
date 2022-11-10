@@ -39,7 +39,7 @@ const Login = () => {
         const user = result.user;
         const currentUser = { email: user?.email };
         // user verify by jwt token
-        fetch("http://localhost:8000/jwt", {
+        fetch("https://tasty-bite-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

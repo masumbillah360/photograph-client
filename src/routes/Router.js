@@ -22,13 +22,13 @@ export const router = createBrowserRouter([
       {
         path: "/allfood",
         element: <AllFood />,
-        loader: () => fetch("http://localhost:8000/allfood"),
+        loader: () => fetch("https://tasty-bite-server.vercel.app/allfood"),
       },
       {
         path: "/fooddetails/:id",
         element: <FoodDetails />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/allfood/${params.id}`),
+          fetch(`https://tasty-bite-server.vercel.app/allfood/${params.id}`),
       },
       {
         path: "/myreviews",
@@ -46,7 +46,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/myreviews/${params.id}`, {
+          fetch(`https://tasty-bite-server.vercel.app/myreviews/${params.id}`, {
             headers: {
               authorization: `Bearer ${localStorage.getItem("token")}`,
             },
@@ -72,11 +72,14 @@ export const router = createBrowserRouter([
         path: "/updateService/:id",
         element: <UpdateService />,
         loader: ({ params }) =>
-          fetch(`http://localhost:8000/myservices/${params.id}`, {
-            headers: {
-              authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }),
+          fetch(
+            `https://tasty-bite-server.vercel.app/myservices/${params.id}`,
+            {
+              headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          ),
       },
       { path: "/blog", element: <BlogPage /> },
       { path: "/login", element: <Login /> },

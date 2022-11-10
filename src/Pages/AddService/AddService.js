@@ -26,7 +26,7 @@ const AddService = () => {
       date,
     };
     // send service info on database
-    fetch("http://localhost:8000/allfood", {
+    fetch("https://tasty-bite-server.vercel.app/allfood", {
       method: "POST",
       headers: {
         "content-type": "application/json",

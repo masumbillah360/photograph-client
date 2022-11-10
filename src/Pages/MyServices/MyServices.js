@@ -6,7 +6,7 @@ const MyServices = () => {
   const [reload, setReload] = useState(false);
   // load user's all services data
   useEffect(() => {
-    fetch("http://localhost:8000/myservices", {
+    fetch("https://tasty-bite-server.vercel.app/myservices", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },

@@ -1,14 +1,18 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import logo from "../../../assets/logo.jpg";
+import logo from "../../../assets/logo.png";
 
 const Footer = () => {
   return (
     <div className="bg-dark rounded-2 text-white">
       <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center p-5 my-4 border-top">
         <div>
-          <img className="img-fluid rounded-circle mx-2" src={logo} alt="" />
+          <img
+            className="img-fluid w-25 rounded-circle mx-2"
+            src={logo}
+            alt=""
+          />
           <h4 className="fw-bold text-warning">
             <span className="text-danger">Tasty</span> Bite
           </h4>

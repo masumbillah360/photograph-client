@@ -18,7 +18,7 @@ const MyReviews = () => {
 
   //load all review for each user
   useEffect(() => {
-    fetch(`http://localhost:8000/myreviews?email=${email}`, {
+    fetch(`https://tasty-bite-server.vercel.app/myreviews?email=${email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },
