@@ -5,8 +5,8 @@ import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
 import { Link } from "react-router-dom";
 
-const SingleFood = ({ food }) => {
-  const { _id, name, description, picture, price } = food;
+const SingleService = ({ service }) => {
+  const { _id, name, description, picture, price } = service;
   return (
     <Card>
       <PhotoProvider>
@@ -49,4 +49,4 @@ const SingleFood = ({ food }) => {
   );
 };
 
-export default SingleFood;
+export default SingleService;

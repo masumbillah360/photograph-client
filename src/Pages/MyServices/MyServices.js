@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import SingleFood from "../Shared/SingleFood/SingleFood";
+import SingleService from "../Shared/SingleSErvice/SingleService";
 
 const MyServices = () => {
   const [services, setServices] = useState([]);
@@ -20,9 +20,9 @@ const MyServices = () => {
       {services.length > 0 ? (
         <div>
           {services.map((service) => (
-            <SingleFood
+            <SingleService
               key={service._id}
-              food={service}
+              service={service}
               reload={reload}
               setReload={setReload}
             />

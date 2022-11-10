@@ -2,12 +2,12 @@ import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
 import Home from "../Pages//Home/Home";
 import AddService from "../Pages/AddService/AddService";
-import AllFood from "../Pages/AllFood/AllFood";
+import AllServices from "../Pages/AllServices/AllServices";
 import BlogPage from "../Pages/BlogPage/BlogPage";
-import FoodDetails from "../Pages/FoodDetails/FoodDetails";
 import Login from "../Pages/Login/Login";
 import MyReviews from "../Pages/MyReviews/MyReviews";
 import MyServices from "../Pages/MyServices/MyServices";
+import ServiceDetails from "../Pages/ServiceDetails/ServiceDetails";
 import Signup from "../Pages/Signup/Signup";
 import UpdateReview from "../Pages/UpdateReview/UpdateReview";
 import UpdateService from "../Pages/UpdateService/UpdateService";
@@ -21,12 +21,12 @@ export const router = createBrowserRouter([
       { path: "/", element: <Home /> },
       {
         path: "/allfood",
-        element: <AllFood />,
+        element: <AllServices />,
         loader: () => fetch("https://tasty-bite-server.vercel.app/allfood"),
       },
       {
         path: "/fooddetails/:id",
-        element: <FoodDetails />,
+        element: <ServiceDetails />,
         loader: ({ params }) =>
           fetch(`https://tasty-bite-server.vercel.app/allfood/${params.id}`),
       },

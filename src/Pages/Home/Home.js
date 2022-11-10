@@ -2,8 +2,8 @@ import React from "react";
 import useTitle from "../../hooks/useTitle";
 import Banner from "../Shared/Banner/Banner";
 import Clients from "./Clients/Clients";
-import Food from "./Food/Food";
 import Owner from "./Owner/Owner";
+import Service from "./Service/Service";
 
 const Home = () => {
   useTitle("Home");
@@ -11,7 +11,7 @@ const Home = () => {
     <div>
       <Banner />
       <div className="mt-4">
-        <Food />
+        <Service />
       </div>
       <div>
         <Owner />

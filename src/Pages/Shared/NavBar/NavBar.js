@@ -12,7 +12,7 @@ const NavBar = () => {
     logOutUser()
       .then(() => {
         console.log("log Out");
-        localStorage.removeItem("toke");
+        // localStorage.removeItem("token");
       })
       .catch((err) => {
         console.log(err);

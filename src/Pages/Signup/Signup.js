@@ -38,9 +38,7 @@ const Signup = () => {
       photoURL: photoURL,
     };
     updateUserInfo(profile)
-      .then(() => {
-        console.log("updated");
-      })
+      .then(() => {})
       .catch((err) => console.log(err));
   };
   return (

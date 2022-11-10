@@ -8,7 +8,7 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 import Revew from "./Revew";
 
-const FoodDetails = () => {
+const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
   useTitle("FoodDetails");
@@ -18,7 +18,6 @@ const FoodDetails = () => {
   const { _id, name, description, price, picture } = foodInfo;
   const postId = _id;
   const userEmail = user.email;
-  console.log(foodInfo.email === userEmail);
   useEffect(() => {
     fetch(
       `https://tasty-bite-server.vercel.app/review?postId=${postId}&email=${userEmail}`,
@@ -56,8 +55,8 @@ const FoodDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setRefresh(!refresh);
+        console.log(data);
       })
       .catch((err) => console.log(err));
   };
@@ -188,4 +187,4 @@ const FoodDetails = () => {
   );
 };
 
-export default FoodDetails;
+export default ServiceDetails;

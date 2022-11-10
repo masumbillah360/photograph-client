@@ -17,11 +17,11 @@ const Slider = () => {
   ];
   return (
     <Carousel activeIndex={index} onSelect={handleSelect}>
-      {sliderImg.map((slid) => (
-        <Carousel.Item>
+      {sliderImg.map((slide, idx) => (
+        <Carousel.Item key={idx}>
           <img
             className="d-block w-100 rounded-3"
-            src={slid?.img}
+            src={slide?.img}
             alt="First slide"
           />
         </Carousel.Item>

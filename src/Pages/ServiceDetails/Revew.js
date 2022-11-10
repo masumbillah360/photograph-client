@@ -6,7 +6,6 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 const Revew = ({ review, setRefresh, refresh }) => {
   const { _id, userThumb, userName, comments, email } = review;
   const { user } = useContext(AuthContext);
-  console.log(review);
   // delet review functions
   const handleDelete = (id) => {
     fetch(`https://tasty-bite-server.vercel.app/review/${id}`, {

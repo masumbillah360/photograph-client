@@ -2,23 +2,23 @@ import React, { useEffect, useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import SingleFood from "../../Shared/SingleFood/SingleFood";
+import SingleService from "../../Shared/SingleSErvice/SingleService";
 
-const Food = () => {
-  const [foods, setFoods] = useState([]);
+const Service = () => {
+  const [service, setService] = useState([]);
   // load data for hom page
   useEffect(() => {
     fetch("https://tasty-bite-server.vercel.app/homefood")
       .then((res) => res.json())
-      .then((data) => setFoods(data));
+      .then((data) => setService(data));
   }, []);
   return (
     <div className="">
       <Row className="gy-4">
         {/* showing load data on single food page  */}
-        {foods.map((food, idx) => (
-          <Col sm={12} md={4} key={idx}>
-            <SingleFood key={idx} food={food} />
+        {service.map((serv) => (
+          <Col sm={12} md={4} key={serv._id}>
+            <SingleService service={serv} />
           </Col>
         ))}
       </Row>
@@ -31,4 +31,4 @@ const Food = () => {
   );
 };
 
-export default Food;
+export default Service;
