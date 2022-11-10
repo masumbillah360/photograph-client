@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
+import useTitle from "../../hooks/useTitle";
 import SingleService from "../Shared/SingleSErvice/SingleService";
 
 const MyServices = () => {
   const [services, setServices] = useState([]);
-  console.log(services);
   const [reload, setReload] = useState(false);
+  useTitle("MyServices");
   // load user's all services data
   useEffect(() => {
     fetch("https://photograph-server.vercel.app/myservices", {

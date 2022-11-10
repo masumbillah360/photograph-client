@@ -53,7 +53,7 @@ const NavBar = () => {
           </Nav>
           {user?.uid ? (
             <Nav className="ms-auto">
-              <Link to="/myreviews" className="nav-link">
+              <Link to="/myservices" className="nav-link">
                 {user?.displayName}
               </Link>
               <button
