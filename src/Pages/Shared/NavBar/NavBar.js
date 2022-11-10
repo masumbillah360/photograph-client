@@ -42,6 +42,9 @@ const NavBar = () => {
                 <Link to="/addservice" className="nav-link">
                   Add Service
                 </Link>
+                <Link to="/myservices" className="nav-link">
+                  My Services
+                </Link>
               </>
             )}
           </Nav>

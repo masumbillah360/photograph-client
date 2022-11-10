@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
+import { Spinner } from "react-bootstrap";
 import Table from "react-bootstrap/Table";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -19,12 +20,23 @@ const MyReviews = () => {
       },
     })
       .then((res) => res.json())
-      .then((data) => setReviews(data))
+      .then((data) => {
+        setReviews(data);
+      })
       .catch((err) => console.log(err));
   }, [email, reload]);
   return (
     <div>
-      {reviews.length > 0 ? (
+      <>
+        {reviews.length <= 0 ? (
+          <div className="d-flex justify-content-center align-items-center vh-100">
+            <Spinner animation="border" variant="danger" />
+          </div>
+        ) : (
+          ""
+        )}
+      </>
+      {reviews.length ? (
         <>
           <Table striped bordered hover>
             <thead>

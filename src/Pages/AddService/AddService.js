@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Form } from "react-bootstrap";
 import { toast, ToastContainer } from "react-toastify";
+import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 
 const AddService = () => {
+  const { user } = useContext(AuthContext);
   useTitle("AddService");
   const handlePostSubmit = (e) => {
     e.preventDefault();
@@ -14,6 +16,7 @@ const AddService = () => {
     const postDesc = form?.postDescription?.value;
     const date = new Date().getTime();
     const postInfo = {
+      email: user?.email,
       name: postTitle,
       picture: photoURL,
       price,
