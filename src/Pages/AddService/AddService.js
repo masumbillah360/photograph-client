@@ -1,11 +1,13 @@
 import React, { useContext } from "react";
 import { Form } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 
 const AddService = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   //custom hooks for change page title
   useTitle("AddService");
 
@@ -39,6 +41,7 @@ const AddService = () => {
         console.log(data);
         toast.success("Successfully Added Your Items");
         form.reset();
+        navigate("/myservices");
       })
       .catch((err) => console.log(err));
   };

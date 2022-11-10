@@ -11,13 +11,15 @@ import Revew from "./Revew";
 const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);
   const [refresh, setRefresh] = useState(false);
-  useTitle("FoodDetails");
+  useTitle("service details");
   const { user } = useContext(AuthContext);
-  const foodInfo = useLoaderData();
+  const serviceInfo = useLoaderData();
   const navigate = useNavigate();
-  const { _id, name, description, price, picture } = foodInfo;
+  const { _id, name, description, price, picture } = serviceInfo;
   const postId = _id;
   const userEmail = user.email;
+  console.log(serviceInfo.email);
+  console.log(userEmail);
   useEffect(() => {
     fetch(
       `https://tasty-bite-server.vercel.app/review?postId=${postId}&email=${userEmail}`,
@@ -78,7 +80,7 @@ const ServiceDetails = () => {
 
   return (
     <Row>
-      {/* start food details section  */}
+      {/* start service details section  */}
       <Col sm={12} md={8}>
         <Card>
           <PhotoProvider>
@@ -108,7 +110,7 @@ const ServiceDetails = () => {
               </div>
               <>
                 {/* conditional rendering for user to delete and update post/service info */}
-                {userEmail === foodInfo?.email && (
+                {userEmail && userEmail === serviceInfo?.email && (
                   <div>
                     <Link
                       to={`/updateService/${_id}`}
@@ -130,7 +132,7 @@ const ServiceDetails = () => {
         </Card>
         {/* end card  */}
       </Col>
-      {/* end food details section  */}
+      {/* end service details section  */}
 
       {/* start review section  */}
       <Col sm={12} md={4}>

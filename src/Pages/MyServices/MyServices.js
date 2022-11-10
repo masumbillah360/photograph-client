@@ -18,14 +18,15 @@ const MyServices = () => {
   return (
     <>
       {services.length > 0 ? (
-        <div>
+        <div className="row">
           {services.map((service) => (
-            <SingleService
-              key={service._id}
-              service={service}
-              reload={reload}
-              setReload={setReload}
-            />
+            <div className="col col-12 col-md-6" key={service._id}>
+              <SingleService
+                service={service}
+                reload={reload}
+                setReload={setReload}
+              />
+            </div>
           ))}
         </div>
       ) : (
