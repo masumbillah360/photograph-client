@@ -48,6 +48,7 @@ const AddService = () => {
         <Form.Group className="mb-3" id="title">
           <Form.Label>Post Title</Form.Label>
           <Form.Control
+            required
             id="title"
             name="title"
             type="text"
@@ -55,9 +56,10 @@ const AddService = () => {
           />
         </Form.Group>
         <Form.Group className="mb-3" id="photoUrl">
-          <Form.Label>Post Title</Form.Label>
+          <Form.Label>Photo URL Link</Form.Label>
           <Form.Control
             id="photoUrl"
+            required
             name="photoURL"
             type="text"
             placeholder="Photo url link..."
@@ -66,6 +68,7 @@ const AddService = () => {
         <Form.Group className="mb-3" id="Price">
           <Form.Label>Price</Form.Label>
           <Form.Control
+            required
             name="price"
             type="text"
             placeholder="Price Your Products..."
@@ -84,9 +87,10 @@ const AddService = () => {
         </Form.Group>
         <Form.Group className="mb-3">
           <Form.Control
+            required
             type="submit"
             className="bg-primary text-white fw-bold"
-            value="Post Now"
+            value="Add Now"
           ></Form.Control>
         </Form.Group>
       </Form>
