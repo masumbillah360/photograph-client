@@ -6,7 +6,7 @@ import "react-photo-view/dist/react-photo-view.css";
 import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
-import Revew from "./Revew";
+import Revew from "../Shared/Review/Review";
 
 const ServiceDetails = () => {
   const [reviews, setReviews] = useState([]);

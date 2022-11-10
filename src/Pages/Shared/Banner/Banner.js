@@ -2,7 +2,7 @@ import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.jpg";
-import Slider from "./Slider";
+import Slider from "../Slider/Slider";
 
 const Banner = () => {
   return (

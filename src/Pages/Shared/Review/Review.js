@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../../context/AuthProvider/AuthProvider";
+import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
 
 const Revew = ({ review, setRefresh, refresh }) => {
   const { _id, userThumb, userName, comments, email } = review;

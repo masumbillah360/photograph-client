@@ -15,7 +15,7 @@ const SingleService = ({ service }) => {
         </PhotoView>
       </PhotoProvider>
       <Card.Body>
-        <Card.Title className="bg-success py-2 text-center rounded-2">
+        <Card.Title className="bg-secondary py-2 text-center rounded-2">
           <span className="text-white fw-bold">Name : {name}</span>
         </Card.Title>
         <Card.Text>

@@ -1,6 +1,7 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
+import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.jpg";
 
 const Footer = () => {
@@ -19,9 +20,15 @@ const Footer = () => {
         </div>
         <div>
           <Nav className="flex-column">
-            <Nav.Link className="text-white fw-bold">Home</Nav.Link>
-            <Nav.Link className="text-white fw-bold">Blog</Nav.Link>
-            <Nav.Link className="text-white fw-bold">About</Nav.Link>
+            <Link to="/" className="nav-link text-white fw-bold">
+              Home
+            </Link>
+            <Link to="/blog" className="nav-link text-white fw-bold">
+              Blog
+            </Link>
+            <Link to="/" className="nav-link text-white fw-bold">
+              About
+            </Link>
           </Nav>
         </div>
         <div>

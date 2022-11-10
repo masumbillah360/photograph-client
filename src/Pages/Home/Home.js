@@ -1,9 +1,9 @@
 import React from "react";
 import useTitle from "../../hooks/useTitle";
 import Banner from "../Shared/Banner/Banner";
+import Clients from "../Shared/Clients/Clients";
+import Owner from "../Shared/Owner/Owner";
 import Service from "../Shared/Service/Service";
-import Clients from "./Clients/Clients";
-import Owner from "./Owner/Owner";
 
 const Home = () => {
   useTitle("Home");
