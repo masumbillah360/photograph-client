@@ -22,14 +22,14 @@ export const router = createBrowserRouter([
       {
         path: "/allservices",
         element: <AllServices />,
-        loader: () => fetch("https://tasty-bite-server.vercel.app/allservices"),
+        loader: () => fetch("https://photograph-server.vercel.app/allservices"),
       },
       {
         path: "/servicedetails/:id",
         element: <ServiceDetails />,
         loader: ({ params }) =>
           fetch(
-            `https://tasty-bite-server.vercel.app/allservices/${params.id}`
+            `https://photograph-server.vercel.app/allservices/${params.id}`
           ),
       },
       {
@@ -48,7 +48,7 @@ export const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`https://tasty-bite-server.vercel.app/myreviews/${params.id}`, {
+          fetch(`https://photograph-server.vercel.app/myreviews/${params.id}`, {
             headers: {
               authorization: `Bearer ${localStorage.getItem("token")}`,
             },
@@ -74,14 +74,11 @@ export const router = createBrowserRouter([
         path: "/updateService/:id",
         element: <UpdateService />,
         loader: ({ params }) =>
-          fetch(
-            `https://tasty-bite-server.vercel.app/myservices/${params.id}`,
-            {
-              headers: {
-                authorization: `Bearer ${localStorage.getItem("token")}`,
-              },
-            }
-          ),
+          fetch(`https://photograph-server.vercel.app/${params.id}`, {
+            headers: {
+              authorization: `Bearer ${localStorage.getItem("token")}`,
+            },
+          }),
       },
       { path: "/blog", element: <BlogPage /> },
       { path: "/login", element: <Login /> },

@@ -12,13 +12,14 @@ const MyReviews = () => {
   const [reviews, setReviews] = useState([]);
   const [reload, setReload] = useState(false);
   const email = user?.email;
+  console.log(reviews);
 
   //custom hok for change page title
   useTitle("My-Reviews");
 
   //load all review for each user
   useEffect(() => {
-    fetch(`https://tasty-bite-server.vercel.app/myreviews?email=${email}`, {
+    fetch(`https://photograph-server.vercel.app/myreviews?email=${email}`, {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },

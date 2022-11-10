@@ -20,7 +20,7 @@ const ServiceDetails = () => {
   const userEmail = user.email;
   useEffect(() => {
     fetch(
-      `https://tasty-bite-server.vercel.app/review?postId=${postId}&email=${userEmail}`,
+      `https://photograph-server.vercel.app/review?postId=${postId}&email=${userEmail}`,
       {
         headers: {
           authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -45,7 +45,7 @@ const ServiceDetails = () => {
       time,
     };
     // sent reivew on server
-    fetch("https://tasty-bite-server.vercel.app/review", {
+    fetch("https://photograph-server.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -62,7 +62,7 @@ const ServiceDetails = () => {
   };
   //delete post function
   const handleDeletePost = (id) => {
-    fetch(`https://tasty-bite-server.vercel.app/myservices/${id}`, {
+    fetch(`https://photograph-server.vercel.app/myservices/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -161,7 +161,7 @@ const ServiceDetails = () => {
             {/* end form  */}
 
             {/* show user review  */}
-            <div className="overflow-auto vh-100 sm:h-auto">
+            <div className="overflow-auto h-sm-auto vh-100 sm:h-auto">
               {reviews.map((review, idx) => (
                 <Revew
                   key={idx}

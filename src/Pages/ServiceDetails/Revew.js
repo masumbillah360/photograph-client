@@ -8,7 +8,7 @@ const Revew = ({ review, setRefresh, refresh }) => {
   const { user } = useContext(AuthContext);
   // delet review functions
   const handleDelete = (id) => {
-    fetch(`https://tasty-bite-server.vercel.app/review/${id}`, {
+    fetch(`https://photograph-server.vercel.app/review/${id}`, {
       method: "DELETE",
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,

@@ -19,6 +19,19 @@ const Login = () => {
         setUser(result.user);
         navigate(from, { replace: true });
         setError("");
+        const currentUser = result.user;
+        fetch("https://photograph-server.vercel.app/jwt", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+            authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+          body: JSON.stringify(currentUser),
+        })
+          .then((res) => res.json())
+          // set token on localStorage
+          .then((data) => localStorage.setItem("token", data.token))
+          .catch((err) => console.log(err));
       })
       .catch((err) => {
         console.log(err);
@@ -39,7 +52,7 @@ const Login = () => {
         const user = result.user;
         const currentUser = { email: user?.email };
         // user verify by jwt token
-        fetch("https://tasty-bite-server.vercel.app/jwt", {
+        fetch("https://photograph-server.vercel.app/jwt", {
           method: "POST",
           headers: {
             "content-type": "application/json",

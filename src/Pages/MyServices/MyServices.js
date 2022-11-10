@@ -3,10 +3,11 @@ import SingleService from "../Shared/SingleSErvice/SingleService";
 
 const MyServices = () => {
   const [services, setServices] = useState([]);
+  console.log(services);
   const [reload, setReload] = useState(false);
   // load user's all services data
   useEffect(() => {
-    fetch("https://tasty-bite-server.vercel.app/myservices", {
+    fetch("https://photograph-server.vercel.app/myservices", {
       headers: {
         authorization: `Bearer ${localStorage.getItem("token")}`,
       },

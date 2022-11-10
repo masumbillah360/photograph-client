@@ -8,7 +8,7 @@ const Service = () => {
   const [service, setService] = useState([]);
   // load data for hom page
   useEffect(() => {
-    fetch("https://tasty-bite-server.vercel.app/homeservices")
+    fetch("https://photograph-server.vercel.app/homeservices")
       .then((res) => res.json())
       .then((data) => setService(data));
   }, []);
