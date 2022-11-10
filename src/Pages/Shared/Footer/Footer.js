@@ -1,7 +1,7 @@
 import React from "react";
 import Nav from "react-bootstrap/Nav";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
-import logo from "../../../assets/logo.png";
+import logo from "../../../assets/logo.jpg";
 
 const Footer = () => {
   return (
@@ -9,12 +9,12 @@ const Footer = () => {
       <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center p-5 my-4 border-top">
         <div>
           <img
-            className="img-fluid w-25 rounded-circle mx-2"
+            className="img-fluid w-50 rounded-circle mx-2"
             src={logo}
             alt=""
           />
           <h4 className="fw-bold text-warning">
-            <span className="text-danger">Tasty</span> Bite
+            <span className="text-danger">Photo</span>Graph
           </h4>
         </div>
         <div>

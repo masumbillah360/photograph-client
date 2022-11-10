@@ -14,13 +14,13 @@ const Owner = () => {
       />
       <h1 className="display-5 fw-bold">Masum Billah</h1>
       <h5 className="fw-bold">
-        Owner and Founder <span className="text-danger">Tasty</span>
-        <span className="text-warning">Bite</span>
+        Owner and Founder <span className="text-danger">Photo</span>
+        <span className="text-warning">Graph</span>
       </h5>
       <div className="col-lg-6 mx-auto">
         <p className="lead mb-4">
-          This is simple cooking orders web page for to take orders people and
-          get best service
+          Hello, I'm a professional photographer. To get best quality
+          photographs Hire Me.
         </p>
         <div className="d-grid gap-2 d-sm-flex justify-content-sm-center">
           <button type="button" className="btn btn-outline-danger btn-lg px-4">

@@ -1,7 +1,7 @@
 import React from "react";
 import { Col, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import logo from "../../../assets/logo.png";
+import logo from "../../../assets/logo.jpg";
 import Slider from "./Slider";
 
 const Banner = () => {
@@ -12,19 +12,21 @@ const Banner = () => {
           <img
             className="img-fluid w-25 border border-success border-2 rounded-circle"
             src={logo}
-            alt=""
+            alt="logo"
           />
           <h1 className="text-white fw-bold">
             <span className="text-danger text-decoration-underline">
-              Your Test
+              Best Photography
             </span>
-            <br />{" "}
+            <br />
             <span className="bg-secondary px-2 rounded-2">Our Commitment</span>
           </h1>
           <p className="text-center">
-            To get your Favorite foods and dessert contact us at{" "}
-            <Link to="/">Tasty Bite</Link>. Wr are always ready to send you our
-            best quality food.
+            To get spacial and very bery atractive Photography contact with
+            <Link className="btn btn-sm btn-outline-danger" to="/">
+              PhotoGraph
+            </Link>
+            . Wr are always ready for you to provide our Best Quality.
           </p>
         </Col>
         <Col sm={12} md={6}>

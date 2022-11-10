@@ -64,11 +64,14 @@ const Login = () => {
       <div className="row align-items-center g-lg-5 py-5">
         {/* information section  */}
         <div className="col-lg-6 text-center text-lg-end">
-          <h1 className="fw-bold lh-1 mb-3">To Get Your Favorite Items</h1>
+          <h1 className="fw-bold lh-1 mb-3">
+            To Get Your Favorite & Special{" "}
+            <span className="text-danger">PhotoGraph</span>
+          </h1>
           <p className="lead">
-            Below is an example form built entirely with Bootstrap's form
-            controls. Each required form group has a validation state that can
-            be triggered by attempting to submit the form without completing it.
+            If You want to get Special Photo Graph information and Services then
+            this site for you. can SignUP and login this website. It's should be
+            helpfull for you.
           </p>
           <div className="d-flex justify-content-evenly mb-4">
             <button

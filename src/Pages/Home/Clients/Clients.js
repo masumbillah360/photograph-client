@@ -6,6 +6,11 @@ import client3 from "../../../assets/profile-3.jpg";
 const Clients = () => {
   return (
     <div className="container">
+      <h1 className="text-center fw-bold text-muted mb-3">Customer Review</h1>
+      <p className="text-center lead">
+        To judge us see our previews customer review here. We are try our best
+        for our each customer. Every curstomer is Versy specail for us.
+      </p>
       <div className="row text-center">
         {/* client 1 review  */}
         <div className="col-lg-4 col-md-6">
@@ -16,8 +21,8 @@ const Clients = () => {
           />
           <h4 className="fw-normal">Mahmud</h4>
           <p>
-            This Tasty Bites Is Awesome. Their Food Quality is so good. you guys
-            can take foods from Tasty Bites.
+            This guy is very talented and creative photographer. You guys can
+            take his services.
           </p>
         </div>
         {/* client 2 review  */}
@@ -29,8 +34,8 @@ const Clients = () => {
           />
           <h4 className="fw-normal">Hasan Ali</h4>
           <p>
-            It was amazing for me. You guys are so good and you food Quality.
-            Thanks for give me amazing service.
+            It was amazing for me. You guys are so good and you Photography
+            Quality. Thanks for give me amazing service.
           </p>
         </div>
         {/* client 3 review  */}
@@ -42,8 +47,8 @@ const Clients = () => {
           />
           <h4 className="fw-normal">Mamun</h4>
           <p>
-            Absolutly Tasty and Awesome Your Food Quality. I will try next time
-            as soon as possible.
+            Absolutly amazing and Awesome Your photographs Quality. I will try
+            next time as soon as possible.
           </p>
         </div>
       </div>

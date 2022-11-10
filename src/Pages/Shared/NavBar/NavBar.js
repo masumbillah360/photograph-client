@@ -24,8 +24,8 @@ const NavBar = () => {
       <Container>
         <Navbar.Brand className="fw-bold text-white">
           <Link to="/" className="nav-link">
-            <span className="bg-secondary ps-2 rounded-start">Tasty</span>
-            <span className="bg-danger pe-2 rounded-end">Bite</span>
+            <span className="bg-secondary ps-2 rounded-start">Photo</span>
+            <span className="bg-danger pe-2 rounded-end">Graph</span>
           </Link>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -43,10 +43,10 @@ const NavBar = () => {
                   My Reviews
                 </Link>
                 <Link to="/addservice" className="nav-link">
-                  Add Service
+                  Add Photograph
                 </Link>
                 <Link to="/myservices" className="nav-link">
-                  My Services
+                  My Photograph
                 </Link>
               </>
             )}
