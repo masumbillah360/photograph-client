@@ -3,9 +3,16 @@ import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
-const SingleReview = ({ review, idx, setReload, reload }) => {
+const SingleReview = ({
+  review,
+  idx,
+  setReload,
+  reload,
+  loading,
+  setLoading,
+}) => {
   const { _id } = review;
-
+  setLoading(false);
   //delete review function
   const handleDelete = (id) => {
     fetch(`https://photograph-server.vercel.app/review/${id}`, {

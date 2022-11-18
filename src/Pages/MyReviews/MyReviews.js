@@ -4,10 +4,17 @@ import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 import SingleReview from "./SingleReview";
 //toastify
+import ClipLoader from "react-spinners/ClipLoader";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+// const override: CSSProperties = {
+//   display: "block",
+//   margin: "0 auto",
+//   borderColor: "red",
+// };
 const MyReviews = () => {
+  let [loading, setLoading] = useState(true);
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const [reload, setReload] = useState(false);
@@ -29,9 +36,17 @@ const MyReviews = () => {
         setReviews(data);
       })
       .catch((err) => console.log(err));
+    // setLoading(false);
   }, [email, reload]);
   return (
     <>
+      <ClipLoader
+        loading={loading}
+        cssOverride={{ display: "block", margin: "0 auto" }}
+        size={150}
+        aria-label="Loading Spinner"
+        data-testid="loader"
+      />
       {/* review Table  */}
       {reviews.length ? (
         <Table striped bordered hover>
@@ -51,6 +66,8 @@ const MyReviews = () => {
                 idx={idx}
                 setReload={setReload}
                 reload={reload}
+                loading={loading}
+                setLoading={setLoading}
               />
             ))}
           </tbody>
