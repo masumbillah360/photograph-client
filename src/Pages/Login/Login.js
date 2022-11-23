@@ -62,10 +62,12 @@ const Login = () => {
         })
           .then((res) => res.json())
           // set token on localStorage
-          .then((data) => localStorage.setItem("token", data.token))
+          .then((data) => {
+            localStorage.setItem("token", data.token);
+            navigate(from, { replace: true });
+            window.location.reload();
+          })
           .catch((err) => console.log(err));
-
-        navigate(from, { replace: true });
       })
       .catch((err) => {
         console.log(err);
