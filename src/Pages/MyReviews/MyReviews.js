@@ -32,10 +32,9 @@ const MyReviews = () => {
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
-        setLoading(false);
       })
       .catch((err) => console.log(err));
-  }, [email, reload, setLoading]);
+  }, [email, reload]);
   return (
     <>
       {/* review Table  */}

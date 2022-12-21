@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Form } from "react-bootstrap";
+import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 
@@ -97,20 +97,6 @@ const AddService = () => {
           ></Form.Control>
         </Form.Group>
       </Form>
-
-      {/* for toast  */}
-      <ToastContainer
-        position="top-center"
-        autoClose={1000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
     </div>
   );
 };

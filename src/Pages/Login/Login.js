@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 
@@ -64,6 +65,7 @@ const Login = () => {
           // set token on localStorage
           .then((data) => {
             localStorage.setItem("token", data.token);
+            Swal.fire("Login Successfull");
             navigate(from, { replace: true });
             window.location.reload();
           })

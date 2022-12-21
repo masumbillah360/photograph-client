@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { toast } from "react-hot-toast";
 import { FaTrash } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider/AuthProvider";
@@ -15,7 +16,7 @@ const Revew = ({ review, setRefresh, refresh }) => {
       },
     })
       .then(() => {
-        console.log("deleted");
+        toast.success("Successfully deleted");
         setRefresh(!refresh);
       })
       .catch((err) => console.log(err));
@@ -26,7 +27,7 @@ const Revew = ({ review, setRefresh, refresh }) => {
         <img
           className="rounded-circle p-2 user-thumb "
           src={userThumb}
-          alt="userProfile"
+          alt="Pic"
         />
         <div className="ms-1 mt-2">
           <h6>{userName}</h6>

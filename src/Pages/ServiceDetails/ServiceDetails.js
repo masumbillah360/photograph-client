@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Card, Col, Row } from "react-bootstrap";
+import { toast } from "react-hot-toast";
 import { FaStar, FaStarHalf } from "react-icons/fa";
 import { PhotoProvider, PhotoView } from "react-photo-view";
 import "react-photo-view/dist/react-photo-view.css";
@@ -70,7 +71,7 @@ const ServiceDetails = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        toast.success("Successfully Deleted");
         navigate("/myservices");
       })
       .catch((err) => console.log(err));
