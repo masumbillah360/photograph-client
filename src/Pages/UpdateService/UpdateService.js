@@ -1,14 +1,14 @@
 import React, { useContext } from "react";
 import { Form } from "react-bootstrap";
+import { toast } from "react-hot-toast";
 import { useLoaderData, useNavigate } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
+
 import { AuthContext } from "../../context/AuthProvider/AuthProvider";
 import useTitle from "../../hooks/useTitle";
 
 const UpdateService = () => {
   const navigate = useNavigate();
   const data = useLoaderData();
-  console.log(["data"], data);
   const { _id, description, name, price, picture } = data;
   const { user } = useContext(AuthContext);
   useTitle("Update Service");
@@ -29,7 +29,7 @@ const UpdateService = () => {
       date,
     };
     // update method call here
-    fetch(`http://localhost:8000/myservices/${_id}`, {
+    fetch(`https://photograph-server.vercel.app/myservices/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",
@@ -39,7 +39,6 @@ const UpdateService = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         toast.success("Successfully Update Your Items");
         navigate("/myservices");
       })
@@ -98,18 +97,6 @@ const UpdateService = () => {
         </Form.Group>
       </Form>
       {/* for show toast  */}
-      <ToastContainer
-        position="top-center"
-        autoClose={1000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss={false}
-        draggable
-        pauseOnHover
-        theme="colored"
-      />
     </div>
   );
 };
