@@ -8,7 +8,7 @@ const Footer = () => {
   return (
     <div className="bg-dark rounded-2 text-white">
       <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center p-5 my-4 border-top">
-        <div>
+        <div className="w-full d-flex flex-column justify-content-center align-items-center">
           <img
             className="img-fluid w-50 rounded-circle mx-2"
             src={logo}
