@@ -17,6 +17,7 @@ const MyReviews = () => {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const [reload, setReload] = useState(false);
+  const [loading, setLoading] = useState(true);
   const email = user?.email;
 
   //custom hok for change page title
@@ -32,9 +33,14 @@ const MyReviews = () => {
       .then((res) => res.json())
       .then((data) => {
         setReviews(data);
+        setLoading(false);
       })
       .catch((err) => console.log(err));
   }, [email, reload]);
+
+  if (loading) {
+    return <h1>Loading...</h1>;
+  }
   return (
     <>
       {/* review Table  */}
