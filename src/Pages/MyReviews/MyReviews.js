@@ -14,7 +14,7 @@ import "react-toastify/dist/ReactToastify.css";
 // };
 const MyReviews = () => {
   // let [loading, setLoading] = useState(true);
-  const { user, setLoading } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const [reload, setReload] = useState(false);
   const email = user?.email;

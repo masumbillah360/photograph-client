@@ -8,6 +8,7 @@ import useTitle from "../../hooks/useTitle";
 const UpdateService = () => {
   const navigate = useNavigate();
   const data = useLoaderData();
+  console.log(["data"], data);
   const { _id, description, name, price, picture } = data;
   const { user } = useContext(AuthContext);
   useTitle("Update Service");
@@ -28,7 +29,7 @@ const UpdateService = () => {
       date,
     };
     // update method call here
-    fetch(`https://photograph-server.vercel.app/myservices/${_id}`, {
+    fetch(`http://localhost:8000/myservices/${_id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

@@ -76,11 +76,14 @@ export const router = createBrowserRouter([
         path: "/updateService/:id",
         element: <UpdateService />,
         loader: ({ params }) =>
-          fetch(`https://photograph-server.vercel.app/${params.id}`, {
-            headers: {
-              authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }),
+          fetch(
+            `https://photograph-server.vercel.app/myservices/${params.id}`,
+            {
+              headers: {
+                authorization: `Bearer ${localStorage.getItem("token")}`,
+              },
+            }
+          ),
       },
       { path: "/blog", element: <BlogPage /> },
       { path: "/login", element: <Login /> },
